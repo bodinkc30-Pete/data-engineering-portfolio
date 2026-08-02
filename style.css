@@ -834,7 +834,7 @@ svg {
 .experience-badge {
     position: absolute;
     z-index: 5;
-    right: -22px;
+    right: -30px;
     bottom: 68px;
 
     display: grid;
@@ -879,9 +879,9 @@ svg {
     position: absolute;
     z-index: 6;
     bottom: 18px;
-    left: -50px;
+    left: -63px;
 
-    width: 230px;
+    width: 200px;
     padding: 18px;
 
     border: 1px solid var(--border);
