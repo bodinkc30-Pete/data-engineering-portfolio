@@ -1,7 +1,9 @@
 /* ========================================================================
-   V21.36 — MOBILE POLISH LAYER
+   V21.37 — MOBILE FINAL POLISH LAYER
    Purpose: deterministic phone layout for Safari / Chrome iOS / LINE WebView.
    Desktop and tablet (>= 761px) are intentionally untouched.
+   NOTE: filename remains mobile-v21.36.css so the existing index.html can be
+   replaced with this file only. Internal release level is V21.37.
    ======================================================================== */
 @media (max-width: 760px) {
   html {
@@ -21,7 +23,21 @@
   .section-anchor, #contact.section-anchor { scroll-margin-top: 78px !important; }
 
   /* --------------------------------------------------------------------
-     03 / ENGINEERING PROOF — compact operating loop on phones
+     03 / ENGINEERING PROOF — V21.37 vertical operating loop on phones
+     Target visual:
+       Build
+         ↓
+       Operate
+         ↓
+       Break
+         ↓
+       Troubleshoot
+         ↓
+       Recover
+         ↓
+       Optimize
+         ↓
+       Explain
      -------------------------------------------------------------------- */
   #proof .v226-engineering-loop,
   #proof .engineering-loop,
@@ -42,7 +58,7 @@
     display: block !important;
     grid-template-columns: none !important;
     grid-template-rows: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
   #proof .v226-engineering-loop::before,
   #proof .v226-engineering-loop::after,
@@ -72,7 +88,7 @@
   #proof .engineering-loop > strong {
     display: block !important;
     width: 100% !important;
-    margin: 0 0 14px !important;
+    margin: 0 0 16px !important;
     padding: 0 !important;
     color: #58c9ff !important;
     font-size: 14px !important;
@@ -80,52 +96,56 @@
     letter-spacing: .08em !important;
     white-space: normal !important;
   }
+
+  /* One deterministic vertical column: no wrapping decisions are left to Safari. */
   #proof .v226-engineering-loop > div,
   #proof .engineering-loop > div {
     display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
     justify-content: flex-start !important;
-    gap: 10px 8px !important;
+    gap: 0 !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     white-space: normal !important;
     transform: none !important;
   }
-  #proof .v226-engineering-loop > div > span,
-  #proof .engineering-loop > div > span {
-    width: auto !important;
-    min-width: 0 !important;
-    height: auto !important;
-    min-height: 38px !important;
-    padding: 8px 13px !important;
+
+  /* First step: Build. */
+  #proof .v226-engineering-loop > div > span:not(.mobile-loop-pair),
+  #proof .engineering-loop > div > span:not(.mobile-loop-pair) {
     display: inline-grid !important;
     place-items: center !important;
+    width: auto !important;
+    min-width: 92px !important;
+    min-height: 40px !important;
+    margin: 0 !important;
+    padding: 8px 14px !important;
+    border: 1px solid rgba(49,124,193,.54) !important;
     border-radius: 9px !important;
+    background: linear-gradient(180deg, rgba(8,34,59,.94), rgba(3,21,39,.95)) !important;
+    color: #d6dce6 !important;
     font-size: 13px !important;
     line-height: 1.2 !important;
-  }
-  #proof .v226-engineering-loop > div > i,
-  #proof .engineering-loop > div > i {
-    display: inline-grid !important;
-    place-items: center !important;
-    width: auto !important;
-    min-width: 18px !important;
-    height: auto !important;
-    padding: 0 !important;
-    color: #ff812e !important;
-    font-size: 20px !important;
-    line-height: 1 !important;
+    box-shadow: inset 0 1px rgba(255,255,255,.02) !important;
   }
 
-  /* V21.36: keep each connector arrow attached to its target step so Safari
-     can wrap the flow without leaving an orphan arrow on a new line. */
+  /* Hide any raw orphan arrow that may briefly exist before JS pairs it. */
+  #proof .v226-engineering-loop > div > i,
+  #proof .engineering-loop > div > i {
+    display: none !important;
+  }
+
+  /* Every later step is wrapped by script.js as: <span class=mobile-loop-pair><i>→</i><span>STEP</span></span>. */
   #proof .v226-engineering-loop > div > .mobile-loop-pair,
   #proof .engineering-loop > div > .mobile-loop-pair {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
     width: auto !important;
     min-width: 0 !important;
     min-height: 0 !important;
@@ -137,18 +157,36 @@
     box-shadow: none !important;
     color: inherit !important;
   }
+
+  /* Convert each horizontal connector into a down arrow and keep it attached to its target step. */
   #proof .v226-engineering-loop > div > .mobile-loop-pair > i,
   #proof .engineering-loop > div > .mobile-loop-pair > i {
-    display: inline-grid !important;
-    place-items: center !important;
-    flex: 0 0 auto !important;
-    width: 18px !important;
-    min-width: 18px !important;
+    position: relative !important;
+    display: block !important;
+    width: 92px !important;
+    min-width: 92px !important;
+    height: 27px !important;
+    min-height: 27px !important;
+    margin: 0 !important;
     padding: 0 !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    font-style: normal !important;
+    text-align: center !important;
+    overflow: visible !important;
+  }
+  #proof .v226-engineering-loop > div > .mobile-loop-pair > i::before,
+  #proof .engineering-loop > div > .mobile-loop-pair > i::before {
+    content: "↓" !important;
+    display: block !important;
+    width: 100% !important;
+    height: 27px !important;
     color: #ff812e !important;
     font-size: 20px !important;
-    line-height: 1 !important;
-    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: 27px !important;
+    text-align: center !important;
   }
   #proof .v226-engineering-loop > div > .mobile-loop-pair > span,
   #proof .engineering-loop > div > .mobile-loop-pair > span {
@@ -156,10 +194,10 @@
     place-items: center !important;
     flex: 0 0 auto !important;
     width: auto !important;
-    min-width: 0 !important;
-    min-height: 38px !important;
+    min-width: 92px !important;
+    min-height: 40px !important;
     margin: 0 !important;
-    padding: 8px 13px !important;
+    padding: 8px 14px !important;
     border: 1px solid rgba(49,124,193,.54) !important;
     border-radius: 9px !important;
     background: linear-gradient(180deg, rgba(8,34,59,.94), rgba(3,21,39,.95)) !important;
