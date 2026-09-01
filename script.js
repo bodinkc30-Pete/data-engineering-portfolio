@@ -246,3 +246,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
   requestActiveSync();
 });
+
+
+/* V21.36 mobile loop pairing */
+(() => {
+  const BREAKPOINT = '(max-width: 760px)';
+  const selector = '#proof .v226-engineering-loop > div, #proof .engineering-loop > div';
+
+  function unwrap(flow) {
+    [...flow.querySelectorAll(':scope > .mobile-loop-pair')].forEach((pair) => {
+      const parent = pair.parentNode;
+      while (pair.firstChild) parent.insertBefore(pair.firstChild, pair);
+      pair.remove();
+    });
+  }
+
+  function wrap(flow) {
+    unwrap(flow);
+    const nodes = [...flow.children];
+    for (let i = 0; i < nodes.length - 1; i += 1) {
+      const arrow = nodes[i];
+      const step = nodes[i + 1];
+      if (arrow && step && arrow.tagName === 'I' && step.tagName === 'SPAN') {
+        const pair = document.createElement('span');
+        pair.className = 'mobile-loop-pair';
+        flow.insertBefore(pair, arrow);
+        pair.appendChild(arrow);
+        pair.appendChild(step);
+        i += 1;
+      }
+    }
+  }
+
+  function sync() {
+    const mobile = window.matchMedia(BREAKPOINT).matches;
+    document.querySelectorAll(selector).forEach((flow) => mobile ? wrap(flow) : unwrap(flow));
+  }
+
+  const start = () => {
+    sync();
+    const mq = window.matchMedia(BREAKPOINT);
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    else if (mq.addListener) mq.addListener(sync);
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+  else start();
+})();

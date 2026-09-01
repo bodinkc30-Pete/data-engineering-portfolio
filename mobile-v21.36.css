@@ -1,0 +1,424 @@
+/* ========================================================================
+   V21.36 — MOBILE POLISH LAYER
+   Purpose: deterministic phone layout for Safari / Chrome iOS / LINE WebView.
+   Desktop and tablet (>= 761px) are intentionally untouched.
+   ======================================================================== */
+@media (max-width: 760px) {
+  html {
+    background: #010813 !important;
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    overflow-x: hidden !important;
+  }
+  body {
+    background: #010813 !important;
+    min-height: 100dvh !important;
+    overflow-x: hidden !important;
+  }
+  img, svg { max-width: 100%; }
+  .full-section { min-height: 0 !important; }
+  .section-anchor, #contact.section-anchor { scroll-margin-top: 78px !important; }
+
+  /* --------------------------------------------------------------------
+     03 / ENGINEERING PROOF — compact operating loop on phones
+     -------------------------------------------------------------------- */
+  #proof .v226-engineering-loop,
+  #proof .engineering-loop,
+  .v228-proof .v226-engineering-loop,
+  .v227-proof .v226-engineering-loop,
+  .v213-proof .engineering-loop {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 18px 0 0 !important;
+    padding: 16px !important;
+    display: block !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    overflow: visible !important;
+  }
+  #proof .v226-engineering-loop::before,
+  #proof .v226-engineering-loop::after,
+  #proof .engineering-loop::before,
+  #proof .engineering-loop::after {
+    display: none !important;
+    content: none !important;
+  }
+  #proof .loop-orbit-icon,
+  #proof .v226-engineering-loop .loop-orbit-icon,
+  #proof .engineering-loop .loop-orbit-icon {
+    display: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+  }
+  #proof .v226-engineering-loop > strong,
+  #proof .engineering-loop > strong {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    color: #58c9ff !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
+    letter-spacing: .08em !important;
+    white-space: normal !important;
+  }
+  #proof .v226-engineering-loop > div,
+  #proof .engineering-loop > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: normal !important;
+    transform: none !important;
+  }
+  #proof .v226-engineering-loop > div > span,
+  #proof .engineering-loop > div > span {
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 38px !important;
+    padding: 8px 13px !important;
+    display: inline-grid !important;
+    place-items: center !important;
+    border-radius: 9px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+  #proof .v226-engineering-loop > div > i,
+  #proof .engineering-loop > div > i {
+    display: inline-grid !important;
+    place-items: center !important;
+    width: auto !important;
+    min-width: 18px !important;
+    height: auto !important;
+    padding: 0 !important;
+    color: #ff812e !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+  }
+
+  /* V21.36: keep each connector arrow attached to its target step so Safari
+     can wrap the flow without leaving an orphan arrow on a new line. */
+  #proof .v226-engineering-loop > div > .mobile-loop-pair,
+  #proof .engineering-loop > div > .mobile-loop-pair {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: inherit !important;
+  }
+  #proof .v226-engineering-loop > div > .mobile-loop-pair > i,
+  #proof .engineering-loop > div > .mobile-loop-pair > i {
+    display: inline-grid !important;
+    place-items: center !important;
+    flex: 0 0 auto !important;
+    width: 18px !important;
+    min-width: 18px !important;
+    padding: 0 !important;
+    color: #ff812e !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+  }
+  #proof .v226-engineering-loop > div > .mobile-loop-pair > span,
+  #proof .engineering-loop > div > .mobile-loop-pair > span {
+    display: inline-grid !important;
+    place-items: center !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    margin: 0 !important;
+    padding: 8px 13px !important;
+    border: 1px solid rgba(49,124,193,.54) !important;
+    border-radius: 9px !important;
+    background: linear-gradient(180deg, rgba(8,34,59,.94), rgba(3,21,39,.95)) !important;
+    color: #d6dce6 !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    box-shadow: inset 0 1px rgba(255,255,255,.02) !important;
+  }
+
+  /* --------------------------------------------------------------------
+     06 / ABOUT — desktop-like small colored icons; no poster-sized SVGs
+     -------------------------------------------------------------------- */
+  #about .v228-about-values,
+  #about .about-values {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    gap: 14px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  #about .v228-about-values > article,
+  #about .about-values > article {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 126px !important;
+    padding: 18px 76px 18px 18px !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+  }
+  #about .v228-about-values > article > b,
+  #about .about-values > article > b {
+    display: block !important;
+    margin: 0 !important;
+    color: #56cfff !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+  }
+  #about .v228-about-values > article > h3,
+  #about .about-values > article > h3 {
+    margin: 15px 0 0 !important;
+    padding: 0 !important;
+    font-size: 21px !important;
+    line-height: 1.15 !important;
+  }
+  #about .v228-about-values > article > p,
+  #about .about-values > article > p {
+    max-width: none !important;
+    margin: 8px 0 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  #about .about-value-icon,
+  #about .v228-about-values .about-value-icon,
+  #about .about-values .about-value-icon {
+    position: absolute !important;
+    left: auto !important;
+    right: 18px !important;
+    top: 18px !important;
+    bottom: auto !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid currentColor !important;
+    border-radius: 10px !important;
+    background: linear-gradient(180deg, rgba(3,24,45,.96), rgba(1,13,27,.94)) !important;
+    overflow: hidden !important;
+    transform: none !important;
+    opacity: 1 !important;
+    box-sizing: border-box !important;
+  }
+  #about .about-value-icon svg,
+  #about .v228-about-values .about-value-icon svg,
+  #about .about-values .about-value-icon svg {
+    display: block !important;
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    min-height: 27px !important;
+    max-width: 27px !important;
+    max-height: 27px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.7 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    transform: none !important;
+  }
+  #about .about-values > article:nth-child(1) .about-value-icon { color: #50cfff !important; border-color: #258dda !important; }
+  #about .about-values > article:nth-child(2) .about-value-icon { color: #ff812e !important; border-color: #a75b28 !important; }
+  #about .about-values > article:nth-child(3) .about-value-icon { color: #39b7ff !important; border-color: #258dda !important; }
+  #about .about-values > article:nth-child(4) .about-value-icon { color: #9d65ff !important; border-color: #6843a8 !important; }
+
+  /* --------------------------------------------------------------------
+     08 / CONTACT — centered icon, stacked text, no stray desktop divider
+     -------------------------------------------------------------------- */
+  #contact .v224-contact-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  #contact .v224-contact-list .v224-contact-row {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 16px !important;
+    row-gap: 6px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 98px !important;
+    margin: 0 !important;
+    padding: 16px 18px !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+  #contact .v224-contact-list .v224-contact-row::before,
+  #contact .v224-contact-list .v224-contact-row::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+  }
+  #contact .v224-contact-list .contact-row-icon {
+    position: static !important;
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center !important;
+    justify-self: center !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 11px !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+  #contact .v224-contact-list .contact-row-icon svg {
+    display: block !important;
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    min-height: 27px !important;
+    max-width: 27px !important;
+    max-height: 27px !important;
+    margin: 0 !important;
+    fill: none !important;
+    stroke: currentColor !important;
+  }
+  #contact .v224-contact-label {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+    justify-self: stretch !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+  }
+  #contact .v224-contact-list .v224-contact-row > strong {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    justify-self: stretch !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.32 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+  #contact .v224-contact-row[data-tone="cyan"] .contact-row-icon { color:#49caff !important; border-color:#258dda !important; }
+  #contact .v224-contact-row[data-tone="orange"] .contact-row-icon { color:#ff7c24 !important; border-color:#b86023 !important; }
+  #contact .v224-contact-row[data-tone="line"] .contact-row-icon { color:#32d46a !important; border-color:#258e54 !important; }
+
+  /* Media / logos must never overflow their phone containers. */
+  .bk-logo-exact img,
+  .raveup-logo,
+  .project-card img,
+  .project-visual img,
+  .credential-card img {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #about .v228-about-values > article,
+  #about .about-values > article {
+    min-height: 122px !important;
+    padding: 16px 68px 16px 16px !important;
+  }
+  #about .about-value-icon,
+  #about .v228-about-values .about-value-icon,
+  #about .about-values .about-value-icon {
+    right: 15px !important;
+    top: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    max-width: 44px !important;
+    max-height: 44px !important;
+  }
+  #about .about-value-icon svg,
+  #about .v228-about-values .about-value-icon svg,
+  #about .about-values .about-value-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    max-width: 25px !important;
+    max-height: 25px !important;
+  }
+  #contact .v224-contact-list .v224-contact-row {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    min-height: 92px !important;
+    padding: 14px 16px !important;
+  }
+  #contact .v224-contact-list .contact-row-icon {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    max-width: 46px !important;
+    max-height: 46px !important;
+  }
+  #contact .v224-contact-list .contact-row-icon svg {
+    width: 25px !important;
+    height: 25px !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    max-width: 25px !important;
+    max-height: 25px !important;
+  }
+}
