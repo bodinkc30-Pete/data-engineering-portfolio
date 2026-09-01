@@ -7674,3 +7674,198 @@
   .v224-contact-label { font-size:1.12cqw !important; }
   .v224-contact-list strong { font-size:1.34cqw !important; }
 }
+
+/* ========================================================================
+   V21.33 — MOBILE RESPONSIVE FINAL PATCH
+   Scope: mobile-only fixes for About, Contact, anchor offsets and iOS root.
+   Desktop reference-locked composition remains untouched.
+   ======================================================================== */
+@media (max-width: 720px) {
+  html {
+    background: #010813 !important;
+    color-scheme: dark;
+    min-height: 100%;
+  }
+  body {
+    background: #010813 !important;
+    min-height: 100dvh;
+  }
+
+  /* Let mobile sections size to content instead of inheriting desktop stage height. */
+  .full-section {
+    min-height: 0 !important;
+  }
+
+  /* Fixed mobile header is ~62px high; keep anchor headings clear of it. */
+  .section-anchor,
+  #contact.section-anchor {
+    scroll-margin-top: 76px !important;
+  }
+
+  /* ABOUT — keep cards compact and constrain inline SVG artwork. */
+  .v228-about-values {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: none !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+  .v213-about .about-values article,
+  .v228-about-values article {
+    position: relative !important;
+    height: auto !important;
+    min-height: 142px !important;
+    padding: 20px 82px 20px 20px !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
+  }
+  .v228-about-values article b,
+  .v213-about .about-values article b {
+    font-size: 13px !important;
+    line-height: 1 !important;
+    margin-bottom: 0 !important;
+  }
+  .v228-about-values h3,
+  .v213-about .about-values h3 {
+    margin-top: 18px !important;
+    font-size: 21px !important;
+    line-height: 1.16 !important;
+  }
+  .v228-about-values p,
+  .v213-about .about-values p {
+    max-width: none !important;
+    margin-top: 10px !important;
+    font-size: 14px !important;
+    line-height: 1.50 !important;
+  }
+  .v228-about-values .about-value-icon,
+  .about-value-icon {
+    right: 18px !important;
+    top: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+  }
+  .v228-about-values .about-value-icon svg,
+  .about-value-icon svg {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    display: block !important;
+    flex: 0 0 28px !important;
+  }
+
+  /* CONTACT — mobile is icon + stacked label/value; no desktop divider. */
+  .v224-contact-list {
+    gap: 12px !important;
+  }
+  .v224-contact-list .v224-contact-row {
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 16px !important;
+    row-gap: 6px !important;
+    min-height: 112px !important;
+    height: auto !important;
+    padding: 18px 18px !important;
+    align-items: center !important;
+  }
+  .v224-contact-list .v224-contact-row::before {
+    display: none !important;
+    content: none !important;
+  }
+  .v224-contact-list .contact-row-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    align-self: center !important;
+  }
+  .v224-contact-list .contact-row-icon svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .v224-contact-label {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: end !important;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+  }
+  .v224-contact-list strong {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    align-self: start !important;
+    margin: 0 !important;
+    min-width: 0 !important;
+    font-size: 16px !important;
+    line-height: 1.32 !important;
+    text-align: left !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .v213-about .about-values article,
+  .v228-about-values article {
+    min-height: 136px !important;
+    padding: 18px 76px 18px 18px !important;
+  }
+  .v228-about-values h3,
+  .v213-about .about-values h3 {
+    font-size: 20px !important;
+  }
+  .v228-about-values p,
+  .v213-about .about-values p {
+    font-size: 13.5px !important;
+  }
+  .v228-about-values .about-value-icon,
+  .about-value-icon {
+    right: 16px !important;
+    top: 18px !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    max-width: 46px !important;
+    max-height: 46px !important;
+  }
+  .v228-about-values .about-value-icon svg,
+  .about-value-icon svg {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    min-height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+  }
+  .v224-contact-list .v224-contact-row {
+    grid-template-columns: 50px minmax(0, 1fr) !important;
+    column-gap: 14px !important;
+    min-height: 106px !important;
+    padding: 16px !important;
+  }
+  .v224-contact-list .contact-row-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+  .v224-contact-label,
+  .v224-contact-list strong {
+    font-size: 15px !important;
+  }
+}

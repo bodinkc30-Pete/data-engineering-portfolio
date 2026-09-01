@@ -12,8 +12,140 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<script defer="" src="script.js"></script>
+<link href="style.css?v=21.35" rel="stylesheet"/>
+<style id="v2134-mobile-critical-hotfix">
+/* V21.34 critical mobile hotfix - intentionally inline to bypass stale mobile CSS caches. */
+@media (max-width: 760px) {
+  html, body { background:#010813 !important; min-height:100% !important; }
+  body { min-height:100dvh !important; overflow-x:hidden !important; }
+  .section-anchor, #contact.section-anchor { scroll-margin-top:78px !important; }
+  .full-section { min-height:0 !important; }
+
+  /* Engineering operating loop: remove the desktop artwork frame on phones. */
+  .v228-proof .v226-engineering-loop,
+  .v227-proof .v226-engineering-loop,
+  .v213-proof .engineering-loop {
+    display:block !important;
+    min-height:0 !important;
+    height:auto !important;
+    padding:18px !important;
+  }
+  .v228-proof .v226-engineering-loop .loop-orbit-icon,
+  .v227-proof .v226-engineering-loop .loop-orbit-icon,
+  .v213-proof .engineering-loop .loop-orbit-icon {
+    display:none !important;
+    width:0 !important; height:0 !important; min-width:0 !important; min-height:0 !important;
+    margin:0 !important; padding:0 !important; border:0 !important; overflow:hidden !important;
+  }
+  .v226-engineering-loop > strong {
+    display:block !important;
+    margin:0 0 14px !important;
+    font-size:14px !important;
+    line-height:1.25 !important;
+    letter-spacing:.08em !important;
+  }
+  .v226-engineering-loop > div {
+    display:flex !important;
+    flex-wrap:wrap !important;
+    align-items:center !important;
+    gap:10px 9px !important;
+    transform:none !important;
+  }
+  .v226-engineering-loop > div > span {
+    min-width:0 !important;
+    padding:8px 13px !important;
+    font-size:13px !important;
+    line-height:1.2 !important;
+  }
+  .v226-engineering-loop > div > i { padding:0 !important; font-size:18px !important; }
+
+  /* About cards: never allow the inline SVG icons to become poster-sized. */
+  .v228-about-values, .v213-about .about-values {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:none !important;
+    gap:14px !important;
+    width:100% !important;
+  }
+  .v228-about-values > article,
+  .v213-about .about-values > article {
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:138px !important;
+    padding:20px 82px 20px 20px !important;
+    overflow:hidden !important;
+  }
+  .v228-about-values > article > b, .v213-about .about-values > article > b {
+    display:block !important; font-size:13px !important; line-height:1 !important; margin:0 !important;
+  }
+  .v228-about-values > article > h3, .v213-about .about-values > article > h3 {
+    margin:18px 0 0 !important; font-size:21px !important; line-height:1.15 !important;
+  }
+  .v228-about-values > article > p, .v213-about .about-values > article > p {
+    max-width:none !important; margin:10px 0 0 !important; font-size:14px !important; line-height:1.5 !important;
+  }
+  .v228-about-values > article > .about-value-icon,
+  .v213-about .about-values > article > .about-value-icon {
+    position:absolute !important;
+    right:18px !important; top:20px !important; left:auto !important; bottom:auto !important;
+    display:grid !important; place-items:center !important;
+    width:48px !important; height:48px !important;
+    min-width:48px !important; min-height:48px !important;
+    max-width:48px !important; max-height:48px !important;
+    margin:0 !important; padding:0 !important;
+    border-radius:10px !important; overflow:hidden !important;
+    transform:none !important;
+  }
+  .v228-about-values > article > .about-value-icon > svg,
+  .v213-about .about-values > article > .about-value-icon > svg {
+    display:block !important;
+    width:28px !important; height:28px !important;
+    min-width:28px !important; min-height:28px !important;
+    max-width:28px !important; max-height:28px !important;
+    transform:none !important;
+  }
+
+  /* Contact cards: icon + label/value, without the desktop vertical divider. */
+  .v224-contact-list { gap:12px !important; }
+  .v224-contact-list .v224-contact-row {
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns:54px minmax(0,1fr) !important;
+    grid-template-rows:auto auto !important;
+    column-gap:16px !important; row-gap:6px !important;
+    width:100% !important; height:auto !important; min-height:106px !important;
+    padding:16px 18px !important; align-items:center !important;
+  }
+  .v224-contact-list .v224-contact-row::before { display:none !important; content:none !important; width:0 !important; height:0 !important; }
+  .v224-contact-list .contact-row-icon {
+    grid-column:1 !important; grid-row:1 / span 2 !important;
+    width:50px !important; height:50px !important; min-width:50px !important; min-height:50px !important;
+    margin:0 !important; align-self:center !important;
+  }
+  .v224-contact-list .contact-row-icon svg { width:28px !important; height:28px !important; }
+  .v224-contact-list .v224-contact-label {
+    grid-column:2 !important; grid-row:1 !important; align-self:end !important;
+    margin:0 !important; padding:0 !important; font-size:16px !important; line-height:1.25 !important;
+  }
+  .v224-contact-list .v224-contact-row > strong {
+    grid-column:2 !important; grid-row:2 !important; align-self:start !important;
+    margin:0 !important; padding:0 !important; min-width:0 !important;
+    font-size:16px !important; line-height:1.32 !important; text-align:left !important;
+    white-space:normal !important; overflow-wrap:anywhere !important;
+  }
+}
+@media (max-width: 420px) {
+  .v228-about-values > article, .v213-about .about-values > article { min-height:132px !important; padding:18px 76px 18px 18px !important; }
+  .v228-about-values > article > .about-value-icon, .v213-about .about-values > article > .about-value-icon { right:16px !important; top:18px !important; width:44px !important; height:44px !important; min-width:44px !important; min-height:44px !important; max-width:44px !important; max-height:44px !important; }
+  .v228-about-values > article > .about-value-icon > svg, .v213-about .about-values > article > .about-value-icon > svg { width:25px !important; height:25px !important; min-width:25px !important; min-height:25px !important; max-width:25px !important; max-height:25px !important; }
+  .v224-contact-list .v224-contact-row { grid-template-columns:50px minmax(0,1fr) !important; column-gap:14px !important; min-height:102px !important; padding:15px 16px !important; }
+}
+</style>
+<link href="mobile-v21.35.css?v=21.35" rel="stylesheet"/>
+
+<script defer="" src="script.js?v=21.35"></script>
 </head>
 <body>
 <a class="skip-link" data-i18n="a11y.skip" href="#main-content">Skip to content</a>
@@ -102,8 +234,8 @@
     <div class="resume-preview-actions">
       <a href="assets/resume/resume-th.png" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewImage">View Image</a>
       <a href="assets/resume/resume-th.png" download="Bodin_Krongchon_Resume_TH.png" data-i18n="resume.downloadImage">Download Image</a>
-      <a href="assets/resume/Bodin_Krongchon_Resume_TH.pdf" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewPdf">View PDF</a>
-      <a href="assets/resume/Bodin_Krongchon_Resume_TH.pdf" download="Bodin_Krongchon_Resume_TH.pdf" data-i18n="resume.downloadPdf">Download PDF</a>
+      <a href="assets/resume/Bodin_Krongchon_Resume_TH_V21.35.pdf" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewPdf">View PDF</a>
+      <a href="assets/resume/Bodin_Krongchon_Resume_TH_V21.35.pdf" download="Bodin_Krongchon_Resume_TH.pdf" data-i18n="resume.downloadPdf">Download PDF</a>
     </div>
   </article>
   <article class="resume-preview-card">
@@ -117,8 +249,8 @@
     <div class="resume-preview-actions">
       <a href="assets/resume/resume-en.png" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewImage">View Image</a>
       <a href="assets/resume/resume-en.png" download="Bodin_Krongchon_Resume_EN.png" data-i18n="resume.downloadImage">Download Image</a>
-      <a href="assets/resume/Bodin_Krongchon_Resume_EN.pdf" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewPdf">View PDF</a>
-      <a href="assets/resume/Bodin_Krongchon_Resume_EN.pdf" download="Bodin_Krongchon_Resume_EN.pdf" data-i18n="resume.downloadPdf">Download PDF</a>
+      <a href="assets/resume/Bodin_Krongchon_Resume_EN_V21.35.pdf" target="_blank" rel="noopener noreferrer" data-i18n="resume.viewPdf">View PDF</a>
+      <a href="assets/resume/Bodin_Krongchon_Resume_EN_V21.35.pdf" download="Bodin_Krongchon_Resume_EN.pdf" data-i18n="resume.downloadPdf">Download PDF</a>
     </div>
   </article>
 </div>
