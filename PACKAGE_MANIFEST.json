@@ -1,0 +1,171 @@
+{
+  "version": "V21.32",
+  "type": "final_public_portfolio_with_clickable_resume_pdfs",
+  "qa": {
+    "TH_pdf_pages": 1,
+    "TH_pdf_links": 10,
+    "TH_portfolio_link_present": true,
+    "TH_certificate_link_present": true,
+    "TH_linkedin_link_present": true,
+    "TH_github_profile_present": true,
+    "EN_pdf_pages": 1,
+    "EN_pdf_links": 10,
+    "EN_portfolio_link_present": true,
+    "EN_certificate_link_present": true,
+    "EN_linkedin_link_present": true,
+    "EN_github_profile_present": true,
+    "html_th_pdf_download": true,
+    "html_en_pdf_download": true,
+    "html_th_pdf_view": true,
+    "html_en_pdf_view": true,
+    "line_contact_present": true,
+    "canonical_portfolio_url_present": true,
+    "translation_pdf_keys_present": true
+  },
+  "files": {
+    "README.md": {
+      "bytes": 747,
+      "sha256": "3cd1d336a5e450d463243111566238b6ce61049e08a31f22fa46d73720da1203"
+    },
+    "V21.31_RELEASE_NOTES.md": {
+      "bytes": 725,
+      "sha256": "1adcdd4f6b313764bad13d9ee29b229bb3cf8345704a0d3c709dfbf5ad799880"
+    },
+    "V21.32_RELEASE_NOTES.md": {
+      "bytes": 924,
+      "sha256": "b99da98e1fb81970d557dbb90063fbe1c5be65d80c03237467c6a400ad0d42f4"
+    },
+    "assets/brand/bk-logo-transparent.png": {
+      "bytes": 798368,
+      "sha256": "50a5c4dd2f521624dbb8267a2698eb18e6b642fa9e1ed7c3d41176379249856f"
+    },
+    "assets/brand/raveup-logo.png": {
+      "bytes": 127100,
+      "sha256": "5487d34c0b1207bd62e7ed971817907227f183157f6699886e5c11d2a0e05b8a"
+    },
+    "assets/decor/projects-server.png": {
+      "bytes": 156269,
+      "sha256": "6c8fd5f222e1290721957078c081bdb6819bfe99474ce74d367f27edbc478195"
+    },
+    "assets/decor/section03-loop-orbit-v226.png": {
+      "bytes": 9624,
+      "sha256": "4ee627b040d59b6a8382ad585611915b93f734c6df9cd97da164624b7b50d8fa"
+    },
+    "assets/decor/section03-topright-reference-v226.png": {
+      "bytes": 86048,
+      "sha256": "f12c2dab42a39d292474e31aca5436d7d29082a787a938794343fae46ec0c691"
+    },
+    "assets/decor/section07-topright-reference-v226.png": {
+      "bytes": 108421,
+      "sha256": "dc842f41019a957bfbd4856b4dad3c3b95f5b0306f46dcfe25e47419b67d3e0a"
+    },
+    "assets/illustrations/featured/featured-databricks.png": {
+      "bytes": 1669838,
+      "sha256": "6bc1491909e3f6fafefe38a29afb4fc7e87800e3439758b37092ec3bcaa1e687"
+    },
+    "assets/illustrations/projects/project-01-sql-ecommerce.png": {
+      "bytes": 1305435,
+      "sha256": "8bbc53935790aecac353ab71e7763c62b2ab31f46c8c27598d77e00b53948133"
+    },
+    "assets/illustrations/projects/project-02-databricks-lakehouse.png": {
+      "bytes": 1567149,
+      "sha256": "cc5c4ffc2afe454b022470ab301e7d5d9af411c6fa6d4a269f50fefa53b21d0e"
+    },
+    "assets/illustrations/projects/project-03-influencer-intelligence.png": {
+      "bytes": 1426955,
+      "sha256": "0f36ebce8ea5c37041169fb2ed40a17a35230fe1b2c051f61199fe2497985ed1"
+    },
+    "assets/illustrations/projects/project-04-marketing-analytics.png": {
+      "bytes": 1067955,
+      "sha256": "55af4ccd702ef47bd327adbae5265c6add2fc9675e89c688b4286aa3b4e6a8d6"
+    },
+    "assets/illustrations/projects/project-05-ecommerce-pipeline.png": {
+      "bytes": 1390795,
+      "sha256": "866dde6438c5ca726c5e00da9e0475446b0c42188cd9f7fca4ac1bc05f11f932"
+    },
+    "assets/illustrations/ui/tech-stack-reference.png": {
+      "bytes": 242577,
+      "sha256": "f46ffed63aa18595037d03bf037b99418a4ea85ff16e5248b8c8b3fa45003992"
+    },
+    "assets/portrait/profile-transparent.png": {
+      "bytes": 537890,
+      "sha256": "f3871b3a9861684cd318ec7a981bf3b7930366f1c93c1b22434070a666766ee4"
+    },
+    "assets/reference/section03-engineering-proof-reference.png": {
+      "bytes": 1309582,
+      "sha256": "6c5b1a4d40c39f2261438cd9469b6ff667644649e42116adeee340639b584fbe"
+    },
+    "assets/reference/section04-capabilities-reference.png": {
+      "bytes": 2356407,
+      "sha256": "1bf4e97452834d808db615fd947c013bf22f9a992b90edcc85254f8c1189019b"
+    },
+    "assets/reference/section06-about-reference.png": {
+      "bytes": 1429441,
+      "sha256": "1cdacbbcfcfc85d7157ad0c762de6def6554e1e5436c670f1898f0335536be3a"
+    },
+    "assets/reference/section07-credentials-reference.png": {
+      "bytes": 1097533,
+      "sha256": "4c26c5346999ebd142d88e4077b57b9c05d309df1ae3ef1ee8a70b320939f1ce"
+    },
+    "assets/resume/Bodin_Krongchon_Resume_EN.pdf": {
+      "bytes": 1507568,
+      "sha256": "b39efd842a11e538719df3359c30128ec12feb6656a76f81be24b8110e3ac265"
+    },
+    "assets/resume/Bodin_Krongchon_Resume_TH.pdf": {
+      "bytes": 1386096,
+      "sha256": "ec55d7f90733a5e6ac7add6414ba9cf2d0e5dfbe0f7fd778b7f710183365c9b4"
+    },
+    "assets/resume/resume-en.png": {
+      "bytes": 1471479,
+      "sha256": "d7e31794d7b41074f2da359da3878d7de118c656100c119a8bad8001aaef10a9"
+    },
+    "assets/resume/resume-th.png": {
+      "bytes": 1379230,
+      "sha256": "dae8ec87f3cd5b3302ba2adca4c865e40c22aa155aec3ef25f1a0e85c7f4515d"
+    },
+    "assets/tech-icons/airflow-reference.png": {
+      "bytes": 1488,
+      "sha256": "1d71419ccf6e5b9e66a0ae2daa90c3c2e138847423396fbcd7ad99dceebd634a"
+    },
+    "assets/tech-icons/databricks-reference.png": {
+      "bytes": 7092,
+      "sha256": "1f942df06f31806eb85262ac47259e19d8f2d5e63ac9a8b0d177b9861fedca73"
+    },
+    "assets/tech-icons/docker-reference.png": {
+      "bytes": 7784,
+      "sha256": "234336ac49722a70de8d22b95427c69d922c8b40be1e030cb329bd238036f6f7"
+    },
+    "assets/tech-icons/github-reference.png": {
+      "bytes": 8482,
+      "sha256": "e586766b0a6ea768f75057ae6a29bd670bb6853bfaf25593502fdb0f33aed5cd"
+    },
+    "assets/tech-icons/postgresql-reference.png": {
+      "bytes": 8032,
+      "sha256": "e64c89edd966b8c0260d46a095ff15ab304d8a31543053be8f41f990951f20c8"
+    },
+    "assets/tech-icons/python-reference.png": {
+      "bytes": 7132,
+      "sha256": "adb4c7dc7c50813e0e888058c83110adcf0b444311e730076e1f26f9cd1da2f7"
+    },
+    "assets/tech-icons/sql-reference.png": {
+      "bytes": 6822,
+      "sha256": "4fd2fbbf0e94502bf5f46265a4645f86708163872916005c803cff2d0eec492e"
+    },
+    "assets/tech-icons/sqlite-reference.png": {
+      "bytes": 6704,
+      "sha256": "82daea00781b6c8ebb8e91abebcb1ef5617990d6c0324a10d45d428e82043a1f"
+    },
+    "index.html": {
+      "bytes": 65489,
+      "sha256": "3f602e450719752f388a461720e07cf1fd68762a3e9fc14f252e4cac23cb92c3"
+    },
+    "script.js": {
+      "bytes": 47752,
+      "sha256": "5161a686dc5e13522dd6ebe101b65e432cdd04c86a5d5901eda0422ed6c17215"
+    },
+    "style.css": {
+      "bytes": 282882,
+      "sha256": "1f99a97be64d98480e048c1ba8be2a9e1b9217724c9b1c427c30bff4f28164b8"
+    }
+  }
+}
