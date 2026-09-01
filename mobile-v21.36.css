@@ -1,10 +1,14 @@
-/* ========================================================================
-   V21.37 — MOBILE FINAL POLISH LAYER
-   Purpose: deterministic phone layout for Safari / Chrome iOS / LINE WebView.
-   Desktop and tablet (>= 761px) are intentionally untouched.
-   NOTE: filename remains mobile-v21.36.css so the existing index.html can be
-   replaced with this file only. Internal release level is V21.37.
-   ======================================================================== */
+/* ==========================================================================
+   BODIN PORTFOLIO — V21.37 MOBILE FINAL POLISH
+   Direct replacement for the existing mobile-v21.36.css.
+   Scope: phones only (<= 760px). Desktop/tablet styling is not touched.
+   Fixes:
+   1) Engineering Operating Loop: deterministic 3-row layout, no orphan arrows.
+   2) Reduce excessive gap between Engineering Proof and Capabilities.
+   3) Reduce Capabilities heading size/line-height on phones.
+   4) Preserve compact About icons and normalized Contact cards.
+   ========================================================================== */
+
 @media (max-width: 760px) {
   html {
     background: #010813 !important;
@@ -13,32 +17,39 @@
     text-size-adjust: 100% !important;
     overflow-x: hidden !important;
   }
+
   body {
     background: #010813 !important;
     min-height: 100dvh !important;
     overflow-x: hidden !important;
   }
-  img, svg { max-width: 100%; }
-  .full-section { min-height: 0 !important; }
-  .section-anchor, #contact.section-anchor { scroll-margin-top: 78px !important; }
 
-  /* --------------------------------------------------------------------
-     03 / ENGINEERING PROOF — V21.37 vertical operating loop on phones
-     Target visual:
-       Build
-         ↓
-       Operate
-         ↓
-       Break
-         ↓
-       Troubleshoot
-         ↓
-       Recover
-         ↓
-       Optimize
-         ↓
-       Explain
-     -------------------------------------------------------------------- */
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  .full-section {
+    min-height: 0 !important;
+  }
+
+  .section-anchor,
+  #contact.section-anchor {
+    scroll-margin-top: 78px !important;
+  }
+
+  /* ----------------------------------------------------------------------
+     03 / ENGINEERING PROOF
+     ---------------------------------------------------------------------- */
+
+  #proof,
+  #proof.full-section,
+  #proof.section-anchor {
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 34px !important;
+  }
+
   #proof .v226-engineering-loop,
   #proof .engineering-loop,
   .v228-proof .v226-engineering-loop,
@@ -46,20 +57,15 @@
   .v213-proof .engineering-loop {
     position: relative !important;
     inset: auto !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
     width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     margin: 18px 0 0 !important;
     padding: 16px !important;
     display: block !important;
-    grid-template-columns: none !important;
-    grid-template-rows: none !important;
     overflow: hidden !important;
   }
+
   #proof .v226-engineering-loop::before,
   #proof .v226-engineering-loop::after,
   #proof .engineering-loop::before,
@@ -67,11 +73,11 @@
     display: none !important;
     content: none !important;
   }
+
   #proof .loop-orbit-icon,
   #proof .v226-engineering-loop .loop-orbit-icon,
   #proof .engineering-loop .loop-orbit-icon {
     display: none !important;
-    position: absolute !important;
     width: 0 !important;
     height: 0 !important;
     min-width: 0 !important;
@@ -84,6 +90,7 @@
     overflow: hidden !important;
     opacity: 0 !important;
   }
+
   #proof .v226-engineering-loop > strong,
   #proof .engineering-loop > strong {
     display: block !important;
@@ -97,119 +104,185 @@
     white-space: normal !important;
   }
 
-  /* One deterministic vertical column: no wrapping decisions are left to Safari. */
+  /*
+     Existing DOM order:
+     1 Build, 2 arrow, 3 Operate, 4 arrow, 5 Break,
+     6 arrow, 7 Troubleshoot, 8 arrow, 9 Recover,
+     10 arrow, 11 Optimize, 12 arrow, 13 Explain.
+
+     Mobile result:
+     Build -> Operate -> Break
+     Troubleshoot -> Recover
+     Optimize -> Explain
+
+     The two arrows that would begin rows 2 and 3 are hidden.
+  */
   #proof .v226-engineering-loop > div,
   #proof .engineering-loop > div {
-    display: flex !important;
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
+    display: grid !important;
+    grid-template-columns:
+      minmax(0, 1fr) 22px
+      minmax(0, 1fr) 22px
+      minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    column-gap: 6px !important;
+    row-gap: 12px !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    white-space: normal !important;
     transform: none !important;
   }
 
-  /* First step: Build. */
-  #proof .v226-engineering-loop > div > span:not(.mobile-loop-pair),
-  #proof .engineering-loop > div > span:not(.mobile-loop-pair) {
-    display: inline-grid !important;
+  #proof .v226-engineering-loop > div > span,
+  #proof .engineering-loop > div > span {
+    display: grid !important;
     place-items: center !important;
-    width: auto !important;
-    min-width: 92px !important;
+    width: 100% !important;
+    min-width: 0 !important;
     min-height: 40px !important;
     margin: 0 !important;
-    padding: 8px 14px !important;
-    border: 1px solid rgba(49,124,193,.54) !important;
+    padding: 8px 7px !important;
+    border: 1px solid rgba(49, 124, 193, .54) !important;
     border-radius: 9px !important;
-    background: linear-gradient(180deg, rgba(8,34,59,.94), rgba(3,21,39,.95)) !important;
+    background: linear-gradient(180deg, rgba(8, 34, 59, .94), rgba(3, 21, 39, .95)) !important;
     color: #d6dce6 !important;
     font-size: 13px !important;
-    line-height: 1.2 !important;
-    box-shadow: inset 0 1px rgba(255,255,255,.02) !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    box-shadow: inset 0 1px rgba(255, 255, 255, .02) !important;
   }
 
-  /* Hide any raw orphan arrow that may briefly exist before JS pairs it. */
   #proof .v226-engineering-loop > div > i,
   #proof .engineering-loop > div > i {
+    display: grid !important;
+    place-items: center !important;
+    width: 22px !important;
+    min-width: 22px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ff812e !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+    text-align: center !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(1),
+  #proof .engineering-loop > div > :nth-child(1) {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(2),
+  #proof .engineering-loop > div > :nth-child(2) {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(3),
+  #proof .engineering-loop > div > :nth-child(3) {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(4),
+  #proof .engineering-loop > div > :nth-child(4) {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(5),
+  #proof .engineering-loop > div > :nth-child(5) {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(6),
+  #proof .engineering-loop > div > :nth-child(6),
+  #proof .v226-engineering-loop > div > :nth-child(10),
+  #proof .engineering-loop > div > :nth-child(10) {
     display: none !important;
   }
 
-  /* Every later step is wrapped by script.js as: <span class=mobile-loop-pair><i>→</i><span>STEP</span></span>. */
-  #proof .v226-engineering-loop > div > .mobile-loop-pair,
-  #proof .engineering-loop > div > .mobile-loop-pair {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    width: auto !important;
-    min-width: 0 !important;
+  #proof .v226-engineering-loop > div > :nth-child(7),
+  #proof .engineering-loop > div > :nth-child(7) {
+    grid-column: 1 / span 2 !important;
+    grid-row: 2 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(8),
+  #proof .engineering-loop > div > :nth-child(8) {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(9),
+  #proof .engineering-loop > div > :nth-child(9) {
+    grid-column: 4 / span 2 !important;
+    grid-row: 2 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(11),
+  #proof .engineering-loop > div > :nth-child(11) {
+    grid-column: 1 / span 2 !important;
+    grid-row: 3 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(12),
+  #proof .engineering-loop > div > :nth-child(12) {
+    grid-column: 3 !important;
+    grid-row: 3 !important;
+  }
+
+  #proof .v226-engineering-loop > div > :nth-child(13),
+  #proof .engineering-loop > div > :nth-child(13) {
+    grid-column: 4 / span 2 !important;
+    grid-row: 3 !important;
+  }
+
+  /* Neutralize older JS-assisted wrappers if they exist in a cached script. */
+  #proof .mobile-loop-pair {
+    display: contents !important;
+  }
+
+  /* ----------------------------------------------------------------------
+     04 / CAPABILITIES — remove oversized transition gap and tighten heading
+     ---------------------------------------------------------------------- */
+
+  #capabilities,
+  #capabilities.full-section,
+  #capabilities.section-anchor {
     min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    color: inherit !important;
+    margin-top: 0 !important;
+    padding-top: 42px !important;
   }
 
-  /* Convert each horizontal connector into a down arrow and keep it attached to its target step. */
-  #proof .v226-engineering-loop > div > .mobile-loop-pair > i,
-  #proof .engineering-loop > div > .mobile-loop-pair > i {
-    position: relative !important;
-    display: block !important;
-    width: 92px !important;
-    min-width: 92px !important;
-    height: 27px !important;
-    min-height: 27px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    font-style: normal !important;
-    text-align: center !important;
-    overflow: visible !important;
-  }
-  #proof .v226-engineering-loop > div > .mobile-loop-pair > i::before,
-  #proof .engineering-loop > div > .mobile-loop-pair > i::before {
-    content: "↓" !important;
-    display: block !important;
-    width: 100% !important;
-    height: 27px !important;
-    color: #ff812e !important;
-    font-size: 20px !important;
-    font-weight: 700 !important;
-    line-height: 27px !important;
-    text-align: center !important;
-  }
-  #proof .v226-engineering-loop > div > .mobile-loop-pair > span,
-  #proof .engineering-loop > div > .mobile-loop-pair > span {
-    display: inline-grid !important;
-    place-items: center !important;
-    flex: 0 0 auto !important;
-    width: auto !important;
-    min-width: 92px !important;
-    min-height: 40px !important;
-    margin: 0 !important;
-    padding: 8px 14px !important;
-    border: 1px solid rgba(49,124,193,.54) !important;
-    border-radius: 9px !important;
-    background: linear-gradient(180deg, rgba(8,34,59,.94), rgba(3,21,39,.95)) !important;
-    color: #d6dce6 !important;
-    font-size: 13px !important;
-    line-height: 1.2 !important;
-    box-shadow: inset 0 1px rgba(255,255,255,.02) !important;
+  #capabilities h1,
+  #capabilities h2,
+  #capabilities .section-title,
+  #capabilities .section-display-title {
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+    font-size: clamp(36px, 10.2vw, 44px) !important;
+    line-height: .98 !important;
+    letter-spacing: -.035em !important;
+    text-wrap: balance;
   }
 
-  /* --------------------------------------------------------------------
-     06 / ABOUT — desktop-like small colored icons; no poster-sized SVGs
-     -------------------------------------------------------------------- */
+  #capabilities .section-subtitle,
+  #capabilities .lead,
+  #capabilities > div > p {
+    margin-top: 0 !important;
+  }
+
+  /* ----------------------------------------------------------------------
+     06 / ABOUT — preserve compact, desktop-like colored icons
+     ---------------------------------------------------------------------- */
+
   #about .v228-about-values,
   #about .about-values {
     display: grid !important;
@@ -219,6 +292,7 @@
     width: 100% !important;
     margin: 0 !important;
   }
+
   #about .v228-about-values > article,
   #about .about-values > article {
     position: relative !important;
@@ -230,6 +304,7 @@
     overflow: hidden !important;
     border-radius: 12px !important;
   }
+
   #about .v228-about-values > article > b,
   #about .about-values > article > b {
     display: block !important;
@@ -238,6 +313,7 @@
     font-size: 13px !important;
     line-height: 1 !important;
   }
+
   #about .v228-about-values > article > h3,
   #about .about-values > article > h3 {
     margin: 15px 0 0 !important;
@@ -245,6 +321,7 @@
     font-size: 21px !important;
     line-height: 1.15 !important;
   }
+
   #about .v228-about-values > article > p,
   #about .about-values > article > p {
     max-width: none !important;
@@ -253,6 +330,7 @@
     font-size: 14px !important;
     line-height: 1.5 !important;
   }
+
   #about .about-value-icon,
   #about .v228-about-values .about-value-icon,
   #about .about-values .about-value-icon {
@@ -273,12 +351,13 @@
     padding: 0 !important;
     border: 1px solid currentColor !important;
     border-radius: 10px !important;
-    background: linear-gradient(180deg, rgba(3,24,45,.96), rgba(1,13,27,.94)) !important;
+    background: linear-gradient(180deg, rgba(3, 24, 45, .96), rgba(1, 13, 27, .94)) !important;
     overflow: hidden !important;
     transform: none !important;
     opacity: 1 !important;
     box-sizing: border-box !important;
   }
+
   #about .about-value-icon svg,
   #about .v228-about-values .about-value-icon svg,
   #about .about-values .about-value-icon svg {
@@ -298,19 +377,37 @@
     stroke-linejoin: round !important;
     transform: none !important;
   }
-  #about .about-values > article:nth-child(1) .about-value-icon { color: #50cfff !important; border-color: #258dda !important; }
-  #about .about-values > article:nth-child(2) .about-value-icon { color: #ff812e !important; border-color: #a75b28 !important; }
-  #about .about-values > article:nth-child(3) .about-value-icon { color: #39b7ff !important; border-color: #258dda !important; }
-  #about .about-values > article:nth-child(4) .about-value-icon { color: #9d65ff !important; border-color: #6843a8 !important; }
 
-  /* --------------------------------------------------------------------
-     08 / CONTACT — centered icon, stacked text, no stray desktop divider
-     -------------------------------------------------------------------- */
+  #about .about-values > article:nth-child(1) .about-value-icon {
+    color: #50cfff !important;
+    border-color: #258dda !important;
+  }
+
+  #about .about-values > article:nth-child(2) .about-value-icon {
+    color: #ff812e !important;
+    border-color: #a75b28 !important;
+  }
+
+  #about .about-values > article:nth-child(3) .about-value-icon {
+    color: #39b7ff !important;
+    border-color: #258dda !important;
+  }
+
+  #about .about-values > article:nth-child(4) .about-value-icon {
+    color: #9d65ff !important;
+    border-color: #6843a8 !important;
+  }
+
+  /* ----------------------------------------------------------------------
+     08 / CONTACT — preserve centered icon + aligned label/value
+     ---------------------------------------------------------------------- */
+
   #contact .v224-contact-list {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
+
   #contact .v224-contact-list .v224-contact-row {
     position: relative !important;
     display: grid !important;
@@ -326,6 +423,7 @@
     align-items: center !important;
     overflow: hidden !important;
   }
+
   #contact .v224-contact-list .v224-contact-row::before,
   #contact .v224-contact-list .v224-contact-row::after {
     display: none !important;
@@ -335,6 +433,7 @@
     border: 0 !important;
     opacity: 0 !important;
   }
+
   #contact .v224-contact-list .contact-row-icon {
     position: static !important;
     grid-column: 1 !important;
@@ -355,6 +454,7 @@
     transform: none !important;
     box-sizing: border-box !important;
   }
+
   #contact .v224-contact-list .contact-row-icon svg {
     display: block !important;
     width: 27px !important;
@@ -367,6 +467,7 @@
     fill: none !important;
     stroke: currentColor !important;
   }
+
   #contact .v224-contact-label {
     grid-column: 2 !important;
     grid-row: 1 !important;
@@ -378,6 +479,7 @@
     line-height: 1.25 !important;
     text-align: left !important;
   }
+
   #contact .v224-contact-list .v224-contact-row > strong {
     grid-column: 2 !important;
     grid-row: 2 !important;
@@ -393,11 +495,22 @@
     overflow-wrap: anywhere !important;
     word-break: normal !important;
   }
-  #contact .v224-contact-row[data-tone="cyan"] .contact-row-icon { color:#49caff !important; border-color:#258dda !important; }
-  #contact .v224-contact-row[data-tone="orange"] .contact-row-icon { color:#ff7c24 !important; border-color:#b86023 !important; }
-  #contact .v224-contact-row[data-tone="line"] .contact-row-icon { color:#32d46a !important; border-color:#258e54 !important; }
 
-  /* Media / logos must never overflow their phone containers. */
+  #contact .v224-contact-row[data-tone="cyan"] .contact-row-icon {
+    color: #49caff !important;
+    border-color: #258dda !important;
+  }
+
+  #contact .v224-contact-row[data-tone="orange"] .contact-row-icon {
+    color: #ff7c24 !important;
+    border-color: #b86023 !important;
+  }
+
+  #contact .v224-contact-row[data-tone="line"] .contact-row-icon {
+    color: #32d46a !important;
+    border-color: #258e54 !important;
+  }
+
   .bk-logo-exact img,
   .raveup-logo,
   .project-card img,
@@ -410,11 +523,51 @@
 }
 
 @media (max-width: 420px) {
+  #proof .v226-engineering-loop > div,
+  #proof .engineering-loop > div {
+    grid-template-columns:
+      minmax(0, 1fr) 18px
+      minmax(0, 1fr) 18px
+      minmax(0, 1fr) !important;
+    column-gap: 4px !important;
+    row-gap: 10px !important;
+  }
+
+  #proof .v226-engineering-loop > div > span,
+  #proof .engineering-loop > div > span {
+    min-height: 38px !important;
+    padding: 7px 5px !important;
+    font-size: 12px !important;
+  }
+
+  #proof .v226-engineering-loop > div > i,
+  #proof .engineering-loop > div > i {
+    width: 18px !important;
+    min-width: 18px !important;
+    font-size: 17px !important;
+  }
+
+  #capabilities,
+  #capabilities.full-section,
+  #capabilities.section-anchor {
+    padding-top: 36px !important;
+  }
+
+  #capabilities h1,
+  #capabilities h2,
+  #capabilities .section-title,
+  #capabilities .section-display-title {
+    font-size: clamp(34px, 10vw, 40px) !important;
+    line-height: 1 !important;
+    margin-bottom: 18px !important;
+  }
+
   #about .v228-about-values > article,
   #about .about-values > article {
     min-height: 122px !important;
     padding: 16px 68px 16px 16px !important;
   }
+
   #about .about-value-icon,
   #about .v228-about-values .about-value-icon,
   #about .about-values .about-value-icon {
@@ -427,6 +580,7 @@
     max-width: 44px !important;
     max-height: 44px !important;
   }
+
   #about .about-value-icon svg,
   #about .v228-about-values .about-value-icon svg,
   #about .about-values .about-value-icon svg {
@@ -437,12 +591,14 @@
     max-width: 25px !important;
     max-height: 25px !important;
   }
+
   #contact .v224-contact-list .v224-contact-row {
     grid-template-columns: 48px minmax(0, 1fr) !important;
     column-gap: 14px !important;
     min-height: 92px !important;
     padding: 14px 16px !important;
   }
+
   #contact .v224-contact-list .contact-row-icon {
     width: 46px !important;
     height: 46px !important;
@@ -451,6 +607,7 @@
     max-width: 46px !important;
     max-height: 46px !important;
   }
+
   #contact .v224-contact-list .contact-row-icon svg {
     width: 25px !important;
     height: 25px !important;
