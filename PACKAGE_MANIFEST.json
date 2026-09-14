@@ -3,13 +3,13 @@
   "type": "final_public_portfolio_with_clickable_resume_pdfs",
   "qa": {
     "TH_pdf_pages": 1,
-    "TH_pdf_links": 10,
+    "TH_pdf_links": 8,
     "TH_portfolio_link_present": true,
     "TH_certificate_link_present": true,
     "TH_linkedin_link_present": true,
     "TH_github_profile_present": true,
     "EN_pdf_pages": 1,
-    "EN_pdf_links": 10,
+    "EN_pdf_links": 8,
     "EN_portfolio_link_present": true,
     "EN_certificate_link_present": true,
     "EN_linkedin_link_present": true,
@@ -108,20 +108,20 @@
       "sha256": "4c26c5346999ebd142d88e4077b57b9c05d309df1ae3ef1ee8a70b320939f1ce"
     },
     "assets/resume/Bodin_Krongchon_Resume_EN.pdf": {
-      "bytes": 1507568,
-      "sha256": "b39efd842a11e538719df3359c30128ec12feb6656a76f81be24b8110e3ac265"
+      "bytes": 895126,
+      "sha256": "05ed2c9b3345b94f6768fec19192799cd5bc8c52258c5994feb7bc1b58e78093"
     },
     "assets/resume/Bodin_Krongchon_Resume_TH.pdf": {
-      "bytes": 1386096,
-      "sha256": "ec55d7f90733a5e6ac7add6414ba9cf2d0e5dfbe0f7fd778b7f710183365c9b4"
+      "bytes": 925465,
+      "sha256": "76b8760639b511d6821225278b897867d608679dfc494566501206f3880c8a57"
     },
-    "assets/resume/resume-en.png": {
-      "bytes": 1471479,
-      "sha256": "d7e31794d7b41074f2da359da3878d7de118c656100c119a8bad8001aaef10a9"
+    "assets/resume/Bodin_Krongchon_Resume_EN.png": {
+      "bytes": 245705,
+      "sha256": "3c4c2e17cc11ce57ca482fd0069d6d581312a80c3f912cfad3d0fd26dce3939d"
     },
-    "assets/resume/resume-th.png": {
-      "bytes": 1379230,
-      "sha256": "dae8ec87f3cd5b3302ba2adca4c865e40c22aa155aec3ef25f1a0e85c7f4515d"
+    "assets/resume/Bodin_Krongchon_Resume_TH.png": {
+      "bytes": 256496,
+      "sha256": "0ceaae21ee69f14d01bdc811a7d65956a43598d0a60a122014785c4376228321"
     },
     "assets/tech-icons/airflow-reference.png": {
       "bytes": 1488,
