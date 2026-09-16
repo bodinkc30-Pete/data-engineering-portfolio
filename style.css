@@ -217,7 +217,7 @@
   .home-project-grid {
     height: 248px;
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 7px;
   }
 
@@ -708,6 +708,7 @@
   .accent-pink { --accent: #ff3f8d; }
   .accent-cyan { --accent: #25d9ff; }
   .accent-mint { --accent: #31e0ad; }
+  .accent-blue { --accent: #4285f4; }
   .project-card-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; }
   .project-no { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 7px; background: var(--accent); color: #fff; font-size: 10.6px; font-weight: 900; box-shadow: 0 0 17px color-mix(in srgb, var(--accent) 34%, transparent); }
   .project-type { padding: 3px 7px; border: 1px solid rgba(55, 141, 214, 0.26); border-radius: 999px; background: rgba(4, 26, 48, 0.78); color: #6986a4; font-size: 7px; font-weight: 600; }
@@ -724,6 +725,8 @@
   .project-tech-row span { min-height: 20px; display: grid; place-items: center; padding: 0 3px; font-size: 7.2px; font-weight: 600; }
   .card-cta { position: relative; z-index: 2; min-height: 23px; display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 4px; border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent); border-radius: 6px; color: #c4d2e0; font-size: 7.9px; font-weight: 600; transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease; }
   .card-cta:hover { background: color-mix(in srgb, var(--accent) 11%, transparent); color: #fff; box-shadow: inset 0 0 14px color-mix(in srgb, var(--accent) 8%, transparent); }
+  .card-cta-private { cursor: default; opacity: .92; }
+  .bigquery-visual, .project08-detail-art { color: #67a7ff; }
 
   /* Home bottom modules */
   .dashboard-module {
@@ -1167,7 +1170,7 @@
     .home-section-heading { height: auto; padding: 9px 2px 7px; }
     .home-project-grid { height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .project-card { height: 270px; }
-    .project-card:last-child { grid-column: 1 / -1; }
+    .project-card:last-child { grid-column: auto; }
     .home-bottom-grid { height: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .dashboard-module { min-height: 238px; height: auto; }
     .contact-module { grid-column: 1 / -1; }
