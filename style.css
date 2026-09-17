@@ -6051,6 +6051,7 @@
   .v226-proof-card-mon { color: #ff7d22 !important; border-color: rgba(224, 102, 28, .76) !important; }
   .v226-proof-card-rc { color: #9a56ff !important; border-color: rgba(126, 66, 230, .78) !important; }
   .v226-proof-card-pf { color: #2e92ff !important; border-color: rgba(50, 133, 226, .78) !important; }
+  .v226-proof-card-cicd { color: #ff5a9b !important; border-color: rgba(234, 71, 139, .78) !important; }
 
   .v226-proof-grid .proof-icon {
     width: 3.02cqw !important;
@@ -6086,19 +6087,22 @@
     letter-spacing: -.004em !important;
   }
 
-  .v226-proof-grid .v226-proof-card:nth-child(5) {
+  .v226-proof-grid .v226-proof-card:nth-child(5),
+  .v226-proof-grid .v226-proof-card:nth-child(6) {
     grid-column: 1 !important;
     grid-row: 2 !important;
     height: 9.42cqw !important;
     min-height: 0 !important;
     padding-top: .83cqw !important;
   }
-  .v226-proof-grid .v226-proof-card:nth-child(5) .proof-icon {
+  .v226-proof-grid .v226-proof-card:nth-child(5) .proof-icon,
+  .v226-proof-grid .v226-proof-card:nth-child(6) .proof-icon {
     width: 3.02cqw !important;
     height: 2.38cqw !important;
     margin-bottom: .66cqw !important;
   }
-  .v226-proof-grid .v226-proof-card:nth-child(5) p { max-width: 16cqw !important; }
+  .v226-proof-grid .v226-proof-card:nth-child(5) p,
+  .v226-proof-grid .v226-proof-card:nth-child(6) p { max-width: 16cqw !important; }
 
   .v226-engineering-loop {
     position: absolute !important;
@@ -6864,7 +6868,7 @@
     width: 100%;
     min-height: 0 !important;
     height: auto !important;
-    aspect-ratio: 1916 / 821;
+    aspect-ratio: 1916 / 1045;
     padding: 0 !important;
     overflow: hidden !important;
     content-visibility: visible !important;
@@ -7008,6 +7012,8 @@
   .v228-cap-grid article:nth-child(6){color:#ff5a9b !important}
   .v228-cap-grid article:nth-child(7){color:#4e9dff !important}
   .v228-cap-grid article:nth-child(8){color:#9d65ff !important}
+  .v228-cap-grid article:nth-child(9){color:#ff8a2c !important;grid-column:1 / span 2 !important}
+  .v228-cap-grid article:nth-child(10){color:#55dfff !important;grid-column:3 / span 2 !important}
 
   .v228-cap-grid .cap-icon {
     width:3.36cqw !important;
