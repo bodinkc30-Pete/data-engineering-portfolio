@@ -8038,3 +8038,34 @@
     display: none !important;
   }
 }
+
+
+/* Proof spacing correction: the final CI/CD card must finish before the
+   operating loop begins, including at zoomed desktop widths. */
+.v213-proof {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.v213-proof .proof-grid {
+  overflow: visible !important;
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 1001px) {
+  .v213-proof .proof-grid article:nth-child(5) {
+    margin-bottom: 18px !important;
+  }
+
+  .v213-proof .engineering-loop {
+    clear: both !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 28px !important;
+  }
+
+  .v213-proof > .page-shell {
+    padding-bottom: 24px !important;
+  }
+}
