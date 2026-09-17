@@ -16,3 +16,13 @@ test("Project 08 uses the transparent Airflow illustration", () => {
   assert.match(html, /assets\/illustrations\/projects\/project-08-airflow-dbt-ecommerce-platform\.webp/);
   assert.match(css, /\.v213-projects \.project-detail-08/);
 });
+
+
+test("desktop home grid grows to contain the second row of eight projects", () => {
+  const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
+
+  assert.match(
+    css,
+    /Eight public projects:[\s\S]*?@media \(min-width:1100px\)\s*\{[\s\S]*?\.home-project-grid\s*\{[\s\S]*?grid-template-columns:\s*repeat\(4,[\s\S]*?height:\s*auto\s*!important;/,
+  );
+});
