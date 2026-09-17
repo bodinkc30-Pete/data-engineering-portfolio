@@ -32,7 +32,8 @@ test("desktop capability layout reserves a balanced third row for the two new ca
 test("capability rows reserve enough height for every visible line of text", () => {
   const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
 
-  assert.match(css, /\.v228-capabilities\s*\{[\s\S]*?aspect-ratio:\s*1916\s*\/\s*1120/);
-  assert.match(css, /\.v228-cap-grid\s*\{[\s\S]*?grid-template-rows:\s*10\.37cqw\s+12\.50cqw\s+12\.50cqw\s*!important;/);
-  assert.match(css, /\.v228-cap-grid article:nth-child\(n\+5\)\s*\{[\s\S]*?height:\s*12\.50cqw\s*!important;/);
+  assert.match(css, /\.v228-capabilities\s*\{[\s\S]*?aspect-ratio:\s*1916\s*\/\s*1150/);
+  assert.match(css, /\.v228-cap-grid\s*\{[\s\S]*?grid-template-rows:\s*12\.50cqw\s+13\.50cqw\s+12\.50cqw\s*!important;/);
+  assert.match(css, /\.v228-cap-grid article:nth-child\(-n\+4\)\s*\{[\s\S]*?height:\s*12\.50cqw\s*!important;/);
+  assert.match(css, /\.v228-cap-grid article:nth-child\(n\+5\):nth-child\(-n\+8\)\s*\{[\s\S]*?height:\s*13\.50cqw\s*!important;/);
 });
