@@ -7970,7 +7970,10 @@
 
 /* Eight public projects: preserve readable desktop card widths. */
 @media (min-width:1100px) {
-  .home-project-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .home-project-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    height:auto !important;
+  }
   .project-card:nth-child(8) .project-visual { height:70px; margin-top:-3px; }
   .project-card:nth-child(8) .airflow-project-art { width:184px !important; height:86px !important; transform:translateY(-6px); }
   .project-card:nth-child(8) h3 { font-size:11px; line-height:1.04; }
