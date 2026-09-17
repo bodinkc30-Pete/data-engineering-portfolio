@@ -7046,6 +7046,17 @@
   }
 }
 
+/* Capability rows: retain the compact first row while giving multi-line rows
+   sufficient vertical room for every title and descriptor. */
+@media (min-width: 1100px) {
+  .v228-capabilities { aspect-ratio: 1916 / 1120 !important; }
+  .v228-cap-grid {
+    grid-template-rows: 10.37cqw 12.50cqw 12.50cqw !important;
+    grid-auto-rows: unset !important;
+  }
+  .v228-cap-grid article:nth-child(n+5) { height: 12.50cqw !important; }
+}
+
 /* --------------------------------------------------------------------------
    06 / ABOUT — near-full visual rebuild
    -------------------------------------------------------------------------- */
