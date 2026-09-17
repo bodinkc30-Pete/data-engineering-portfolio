@@ -8025,3 +8025,16 @@
 @media (min-width: 761px) and (max-width: 1260px) {
   .tech-native-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+
+/* At high zoom, the portrait artwork is decorative only; remove its reserved row
+   so the feature card connects directly to the projects section. */
+@media (min-width: 721px) and (max-width: 1000px) {
+  .hero-grid {
+    grid-template-areas: "copy" "featured" !important;
+  }
+
+  .profile-zone {
+    display: none !important;
+  }
+}
