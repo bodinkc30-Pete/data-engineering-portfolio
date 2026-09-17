@@ -7872,3 +7872,58 @@
     font-size: 15px !important;
   }
 }
+
+/* === AWS transparent artwork integration ==================================
+   The website card is the only frame. The AWS artwork is a borderless cutout. */
+.project-card:nth-child(7) .project-visual {
+  height: 76px;
+  margin-top: -3px;
+  overflow: visible;
+}
+.project-card:nth-child(7) .project-visual::before {
+  opacity: .24;
+  width: 170px;
+  height: 48px;
+}
+.project-card:nth-child(7) .aws-project-art {
+  width: 205px !important;
+  height: 96px !important;
+  object-fit: contain;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: translateY(-5px);
+}
+
+.v213-projects .project-detail-07 { --project-accent:#ff9900; color:#ff9900; }
+.v213-projects .project-detail-07 .aws-project-detail-art {
+  width: 154px !important;
+  height: 96px !important;
+  top: 8px !important;
+  right: 10px !important;
+  object-fit: contain;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 0 10px rgba(38,155,255,.24));
+}
+.v213-projects .project-detail-07 h3 { max-width: 66%; }
+
+@media (max-width:760px) {
+  .project-card:nth-child(7) .aws-project-art { width: 190px !important; height: 90px !important; }
+  .v213-projects .project-detail-07 .aws-project-detail-art { width: 142px !important; height: 88px !important; }
+  .v213-projects .project-detail-07 h3 { max-width: 64%; }
+}
+
+/* Seven public projects: keep the desktop home grid on one clean row. */
+@media (min-width:1100px) {
+  .home-project-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+  .project-card:nth-child(7) .project-visual { height: 70px; margin-top: -2px; }
+  .project-card:nth-child(7) .aws-project-art {
+    width: 158px !important;
+    height: 82px !important;
+    transform: translateY(-4px);
+  }
+  .project-card:nth-child(7) h3 { font-size: 10.2px; line-height: 1.03; }
+  .project-card:nth-child(7) > p { height: 27px; font-size: 7.7px; }
+}
