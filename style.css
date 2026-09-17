@@ -7952,3 +7952,27 @@
     min-height: 246px !important;
   }
 }
+
+
+/* Project 08 — Airflow + dbt e-commerce platform. */
+.accent-airflow { --accent:#ff5a3d; }
+.project-card:nth-child(8) .project-visual { height:78px; margin-top:-5px; overflow:visible; }
+.project-card:nth-child(8) .airflow-project-art { width:206px !important; height:98px !important; object-fit:contain; background:transparent !important; border:0 !important; box-shadow:none !important; transform:translateY(-7px); }
+.v213-projects .project-detail-08 { --project-accent:#ff5a3d; color:#ff6b45; border-color:#d44a31!important; }
+.v213-projects .project-detail-08 .airflow-project-detail-art { width:160px !important; height:98px !important; top:6px !important; right:7px !important; object-fit:contain; background:transparent !important; border:0 !important; box-shadow:none !important; filter:drop-shadow(0 0 11px rgba(255,90,61,.28)); }
+.v213-projects .project-detail-08 h3 { max-width:64%; }
+
+@media (max-width:760px) {
+  .project-card:nth-child(8) .airflow-project-art { width:190px !important; height:90px !important; }
+  .v213-projects .project-detail-08 .airflow-project-detail-art { width:142px !important; height:88px !important; }
+  .v213-projects .project-detail-08 h3 { max-width:64%; }
+}
+
+/* Eight public projects: preserve readable desktop card widths. */
+@media (min-width:1100px) {
+  .home-project-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .project-card:nth-child(8) .project-visual { height:70px; margin-top:-3px; }
+  .project-card:nth-child(8) .airflow-project-art { width:184px !important; height:86px !important; transform:translateY(-6px); }
+  .project-card:nth-child(8) h3 { font-size:11px; line-height:1.04; }
+  .project-card:nth-child(8) > p { height:31px; font-size:8px; }
+}
