@@ -37,3 +37,17 @@ test("capability rows reserve enough height for every visible line of text", () 
   assert.match(css, /\.v228-cap-grid article:nth-child\(-n\+4\)\s*\{[\s\S]*?height:\s*12\.50cqw\s*!important;/);
   assert.match(css, /\.v228-cap-grid article:nth-child\(n\+5\):nth-child\(-n\+8\)\s*\{[\s\S]*?height:\s*13\.50cqw\s*!important;/);
 });
+
+
+test("tech stack includes repository-backed cloud and transformation tools", async () => {
+  const html = await readFile(resolve(projectRoot, "index.html"), "utf8");
+  assert.match(html, /<b>dbt<\/b>/);
+  assert.match(html, /<b>BigQuery \/ GCP<\/b>/);
+  assert.match(html, /<b>AWS<\/b>/);
+  assert.match(html, /<b>Terraform<\/b>/);
+});
+
+test("compact desktop hero returns to a single-column reading flow", async () => {
+  const css = await readFile(resolve(projectRoot, "style.css"), "utf8");
+  assert.match(css, /@media \(min-width: 721px\) and \(max-width: 1000px\)[\s\S]*?\.hero-grid\s*\{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) !important;[\s\S]*?grid-template-areas: "copy" "profile" "featured"/);
+});
