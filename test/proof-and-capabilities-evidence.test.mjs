@@ -28,3 +28,11 @@ test("desktop capability layout reserves a balanced third row for the two new ca
   assert.match(css, /\.v228-cap-grid article:nth-child\(9\)\{[^}]*grid-column:\s*1\s*\/\s*span\s*2/);
   assert.match(css, /\.v228-cap-grid article:nth-child\(10\)\{[^}]*grid-column:\s*3\s*\/\s*span\s*2/);
 });
+
+test("capability rows reserve enough height for every visible line of text", () => {
+  const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
+
+  assert.match(css, /\.v228-capabilities\s*\{[\s\S]*?aspect-ratio:\s*1916\s*\/\s*1120/);
+  assert.match(css, /\.v228-cap-grid\s*\{[\s\S]*?grid-template-rows:\s*10\.37cqw\s+12\.50cqw\s+12\.50cqw\s*!important;/);
+  assert.match(css, /\.v228-cap-grid article:nth-child\(n\+5\)\s*\{[\s\S]*?height:\s*12\.50cqw\s*!important;/);
+});
