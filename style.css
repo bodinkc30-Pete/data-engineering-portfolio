@@ -7940,3 +7940,15 @@
   height: 54px;
   background: radial-gradient(ellipse, rgba(66,133,244,.22), rgba(52,168,83,.08) 48%, transparent 72%);
 }
+
+
+/* PROJECT 05 CARD NORMALIZATION
+   Keep every project card in the desktop project grid at one column wide. */
+@media (min-width:1001px) {
+  .v213-projects .project-detail-05 {
+    grid-column: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 246px !important;
+  }
+}
