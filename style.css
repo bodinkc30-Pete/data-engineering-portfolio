@@ -7998,3 +7998,30 @@
   .project-card:nth-child(8) h3 { font-size:11px; line-height:1.04; }
   .project-card:nth-child(8) > p { height:31px; font-size:8px; }
 }
+
+
+/* Keep the hero in normal document flow at compact desktop widths and high browser zoom. */
+@media (min-width: 721px) and (max-width: 1000px) {
+  .home { min-height: 0 !important; overflow: visible !important; }
+  .command-wrap { width: 100% !important; max-width: none !important; padding: 10px 12px !important; }
+  .hero-grid {
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "profile" "featured" !important;
+    overflow: visible !important;
+  }
+  .hero-copy { grid-area: copy !important; min-height: 0 !important; padding: 24px 20px 18px !important; }
+  .profile-zone { grid-area: profile !important; height: 300px !important; overflow: hidden !important; }
+  .profile-zone > img { height: 300px !important; max-width: none !important; }
+  .featured-card { grid-area: featured !important; align-self: auto !important; height: auto !important; min-height: 0 !important; margin: 0 8px 10px !important; }
+  .metric-strip, .home-section-heading { height: auto !important; }
+}
+
+/* Fourteen verified technologies form two balanced rows on wide desktop screens. */
+@media (min-width: 1261px) {
+  .tech-native-list { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+}
+@media (min-width: 761px) and (max-width: 1260px) {
+  .tech-native-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
