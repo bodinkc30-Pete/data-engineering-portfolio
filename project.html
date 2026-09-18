@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#031327">
+  <meta name="description" content="Project detail and engineering evidence from Bodin Krongchon's data engineering portfolio.">
+  <title>Project Details | Bodin Krongchon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="style.css?v=21.37" rel="stylesheet">
+  <link href="project-detail.css" rel="stylesheet">
+  <link href="mobile-v21.37.css?v=21.37" rel="stylesheet">
+  <script defer src="project-detail.js"></script>
+</head>
+<body class="project-page">
+  <a class="skip-link" href="#project-detail">Skip to project detail</a>
+  <main class="project-page-shell" id="project-detail">
+    <header class="project-page-header">
+      <a class="project-back-link" href="index.html#projects">← <span data-project-copy="back">Back to projects</span></a>
+      <a class="project-brand" href="index.html" aria-label="Bodin Krongchon portfolio">
+        <img src="assets/brand/bk-logo-transparent.png" alt="">
+        <span><strong>BODIN KRONGCHON</strong><small>DATA ENGINEER</small></span>
+      </a>
+      <div class="project-language-switch" aria-label="Language selector">
+        <button type="button" data-project-language="th">TH</button>
+        <button type="button" data-project-language="en">EN</button>
+      </div>
+    </header>
+
+    <section class="project-detail-page" data-project-detail aria-live="polite"></section>
+    <section class="project-not-found" data-project-not-found hidden>
+      <span>404</span>
+      <h1 data-project-copy="notFoundTitle">Project not found</h1>
+      <p data-project-copy="notFoundText">Please return to the project list and choose a project.</p>
+      <a class="project-primary-action" href="index.html#projects" data-project-copy="back">Back to projects</a>
+    </section>
+  </main>
+</body>
+</html>
