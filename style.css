@@ -8069,3 +8069,16 @@
     padding-bottom: 24px !important;
   }
 }
+
+
+/* Project-detail navigation and readable eight-card layout. */
+@media (min-width: 1100px) {
+  .v228-capabilities { aspect-ratio: 1916 / 1150 !important; }
+  .v228-cap-grid { grid-template-rows: 12.50cqw 13.50cqw 12.50cqw !important; grid-auto-rows: unset !important; }
+  .v228-cap-grid article:nth-child(-n+4) { height: 12.50cqw !important; }
+  .v228-cap-grid article:nth-child(n+5):nth-child(-n+8) { height: 13.50cqw !important; }
+  .v228-cap-grid article:nth-child(n+9) { height: 12.50cqw !important; }
+  .home-project-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); height: auto !important; }
+}
+.project-card[data-project-id], .v213-projects .project-detail-grid article[data-project-id] { cursor: pointer; }
+.project-card[data-project-id]:focus-visible, .v213-projects .project-detail-grid article[data-project-id]:focus-visible { outline: 3px solid #63d6ff; outline-offset: 4px; }
