@@ -43,13 +43,59 @@ const PROJECT_DETAILS = {
   }
 };
 
+const PROJECT_EVIDENCE = {
+  "sql-ecommerce": [
+    ["sql-flow", "assets/evidence/project-01/staged-to-core.svg", { en: "Staged-to-core flow", th: "เส้นทาง Staging ไป Core" }, { en: "Shows how raw exports pass through quality gates before safe outputs.", th: "แสดงข้อมูลจาก export ผ่าน quality gates ก่อนสร้างผลลัพธ์ที่ปลอดภัย" }],
+    ["sql-quality", "assets/evidence/project-01/dq-rejected.svg", { en: "DQ and rejected records", th: "DQ และข้อมูลที่ถูกแยก" }, { en: "Makes failed rows traceable instead of silently dropping them.", th: "ทำให้ติดตามแถวที่ไม่ผ่านได้ แทนการทิ้งข้อมูลแบบเงียบ ๆ" }]
+  ],
+  "databricks-lakehouse": [
+    ["lakehouse-flow", "assets/evidence/project-02/medallion-flow.svg", { en: "Medallion layers", th: "ชั้น Medallion" }, { en: "Synthetic Bronze-Silver-Gold flow with a trusted analytics boundary.", th: "เส้นทาง Bronze-Silver-Gold จากข้อมูลสังเคราะห์สู่ analytics ที่เชื่อถือได้" }],
+    ["lakehouse-recovery", "assets/evidence/project-02/reliability-lab.svg", { en: "Reliability lab outcome", th: "ผลลัพธ์ Reliability Lab" }, { en: "A controlled failure is observed, diagnosed, and recovered.", th: "แสดงการสังเกต วินิจฉัย และกู้คืนจาก failure ที่ควบคุมไว้" }]
+  ],
+  "influencer-intelligence": [
+    ["identity-resolution", "assets/evidence/project-03/entity-resolution.svg", { en: "Identity resolution", th: "การรวมตัวตน" }, { en: "Aliases resolve to a Golden Master with a review path.", th: "รวม aliases เป็น Golden Master พร้อมเส้นทางทบทวน" }],
+    ["lineage", "assets/evidence/project-03/lineage-chain.svg", { en: "Lineage and provenance", th: "Lineage และ Provenance" }, { en: "Source records remain traceable through the matching decision.", th: "ติดตามข้อมูลต้นทางจนถึงเหตุผลของการจับคู่ได้" }]
+  ],
+  "marketing-campaign": [
+    ["safe-input", "assets/evidence/project-04/safe-input.svg", { en: "Sanitized sample input", th: "ตัวอย่างข้อมูลที่ Sanitized" }, { en: "Synthetic payment and campaign rows shaped like the real data problem.", th: "ข้อมูล payment และ campaign สังเคราะห์ที่มีโครงสร้างตามปัญหาจริง" }],
+    ["dq-findings", "assets/evidence/project-04/dq-findings.svg", { en: "Data Quality findings", th: "ผลตรวจ Data Quality" }, { en: "Recorded missing post dates and payment statuses from the audited report.", th: "แสดง missing post dates และ payment statuses ตามรายงานที่ตรวจสอบแล้ว" }],
+    ["rejected-routing", "assets/evidence/project-04/rejected-routing.svg", { en: "Rejected-record routing", th: "เส้นทางข้อมูลที่ถูกแยก" }, { en: "Rejected rows carry a reason for diagnosis and remediation.", th: "แถวที่ไม่ผ่านมีเหตุผลเพื่อวิเคราะห์และแก้ไขต่อ" }],
+    ["sqlite-output", "assets/evidence/project-04/sqlite-output.svg", { en: "SQLite analytical output", th: "ผลลัพธ์วิเคราะห์จาก SQLite" }, { en: "A portfolio-safe summary demonstrates the final reporting shape.", th: "สรุปผลแบบปลอดภัยที่แสดงรูปแบบรายงานปลายทาง" }]
+  ],
+  "ecommerce-pipeline": [
+    ["excel-flow", "assets/evidence/project-05/excel-to-sqlite.svg", { en: "Excel to SQLite flow", th: "เส้นทาง Excel ไป SQLite" }, { en: "Shows validation and transformation before the analytical store.", th: "แสดง validation และ transformation ก่อนเข้า analytical store" }],
+    ["pipeline-output", "assets/evidence/project-05/safe-output.svg", { en: "Safe analytical output", th: "ผลลัพธ์วิเคราะห์ที่ปลอดภัย" }, { en: "The output is reproducible and contains no private source rows.", th: "ผลลัพธ์ทำซ้ำได้และไม่มีข้อมูลต้นทางส่วนตัว" }]
+  ],
+  "bigquery-enterprise": [
+    ["gcp-layers", "assets/evidence/project-06/layered-warehouse.svg", { en: "Layered GCP warehouse", th: "คลังข้อมูล GCP แบบ Layered" }, { en: "GCS landing flows into governed BigQuery layers.", th: "ข้อมูลจาก GCS ไหลเข้าสู่ BigQuery layers ที่มี governance" }],
+    ["reconciliation", "assets/evidence/project-06/reconciliation.svg", { en: "Reconciliation result", th: "ผลการกระทบยอด" }, { en: "Counts and control totals are compared before publication.", th: "เปรียบเทียบจำนวนและ control totals ก่อนเผยแพร่" }]
+  ],
+  "aws-reliability": [
+    ["aws-flow", "assets/evidence/project-07/aws-flow.svg", { en: "AWS reference flow", th: "Reference flow ของ AWS" }, { en: "Shows the planned S3, Glue, and Redshift control path.", th: "แสดงเส้นทางควบคุม S3, Glue และ Redshift ตามแผน" }],
+    ["recovery", "assets/evidence/project-07/recovery-drill.svg", { en: "Failure and recovery drill", th: "การทดสอบ Failure และ Recovery" }, { en: "A controlled failure produces evidence for recovery validation.", th: "failure ที่ควบคุมไว้สร้างหลักฐานสำหรับตรวจสอบ recovery" }]
+  ],
+  "airflow-dbt": [
+    ["dag-run", "assets/evidence/project-08/dag-run.svg", { en: "Airflow DAG run", th: "การรัน Airflow DAG" }, { en: "Eight source contracts move through observable orchestration steps.", th: "source contracts 8 ชุดผ่าน orchestration ที่สังเกตได้" }],
+    ["dbt-tests", "assets/evidence/project-08/dbt-tests.svg", { en: "dbt model and test summary", th: "สรุป dbt model และ test" }, { en: "The warehouse build records model and test outcomes.", th: "การสร้าง warehouse บันทึกผล model และ test" }]
+  ]
+};
+
+for (const [id, evidence] of Object.entries(PROJECT_EVIDENCE)) {
+  PROJECT_DETAILS[id].evidence = evidence;
+}
+
 const COPY = {
-  en: { back: "Back to projects", overview: "Project overview", problem: "Problem addressed", scope: "Portfolio scope", flow: "Architecture flow", delivered: "Engineering delivered", tools: "Tools used", evidence: "Verified evidence", github: "Open GitHub repository", notFoundTitle: "Project not found", notFoundText: "Please return to the project list and choose a project." },
-  th: { back: "กลับไปหน้าโปรเจกต์", overview: "ภาพรวมโปรเจกต์", problem: "ปัญหาที่แก้", scope: "ขอบเขตของ Portfolio", flow: "ลำดับสถาปัตยกรรม", delivered: "สิ่งที่สร้างและพิสูจน์", tools: "เครื่องมือที่ใช้", evidence: "หลักฐานที่ตรวจสอบได้", github: "เปิด GitHub Repository", notFoundTitle: "ไม่พบโปรเจกต์", notFoundText: "กรุณากลับไปที่รายการโปรเจกต์แล้วเลือกโปรเจกต์อีกครั้ง" }
+  en: { back: "Back to projects", overview: "Project overview", problem: "Problem addressed", scope: "Portfolio scope", flow: "Architecture flow", delivered: "Engineering delivered", tools: "Tools used", evidence: "Verified evidence", evidenceLabel: "Synthetic / Sanitized portfolio evidence", closeEvidence: "Close evidence", github: "Open GitHub repository", notFoundTitle: "Project not found", notFoundText: "Please return to the project list and choose a project." },
+  th: { back: "กลับไปหน้าโปรเจกต์", overview: "ภาพรวมโปรเจกต์", problem: "ปัญหาที่แก้", scope: "ขอบเขตของ Portfolio", flow: "ลำดับสถาปัตยกรรม", delivered: "สิ่งที่สร้างและพิสูจน์", tools: "เครื่องมือที่ใช้", evidence: "หลักฐานที่ตรวจสอบได้", evidenceLabel: "หลักฐาน Portfolio แบบสังเคราะห์ / Sanitized", closeEvidence: "ปิดหลักฐาน", github: "เปิด GitHub Repository", notFoundTitle: "ไม่พบโปรเจกต์", notFoundText: "กรุณากลับไปที่รายการโปรเจกต์แล้วเลือกโปรเจกต์อีกครั้ง" }
 };
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]);
+}
+
+function renderEvidence(project, lang) {
+  const copy = COPY[lang];
+  return `<section class="project-detail-section project-evidence-gallery" data-evidence-gallery><div class="project-evidence-heading"><h2>${copy.evidence}</h2><span>${copy.evidenceLabel}</span></div><div class="project-evidence-grid">${project.evidence.map(([id, file, title, caption]) => `<button class="project-evidence-card" type="button" data-evidence-id="${escapeHtml(id)}" data-evidence-file="${escapeHtml(file)}" data-evidence-title="${escapeHtml(title[lang])}" data-evidence-caption="${escapeHtml(caption[lang])}"><img src="${escapeHtml(file)}" alt="${escapeHtml(title[lang])}" loading="lazy"><strong>${escapeHtml(title[lang])}</strong><span>${escapeHtml(caption[lang])}</span><small>${copy.evidenceLabel}</small></button>`).join("")}</div></section>`;
 }
 
 function renderProject(project, lang) {
@@ -76,6 +122,7 @@ function renderProject(project, lang) {
       </section>
       <section class="project-detail-section"><h2>${copy.flow}</h2><ol class="project-flow">${content.flow.map((step, index) => `<li><span>${String(index + 1).padStart(2, "0")}</span>${escapeHtml(step)}</li>`).join("")}</ol></section>
       <section class="project-detail-section"><h2>${copy.delivered}</h2><ul class="project-delivered">${content.delivered.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>
+      ${renderEvidence(project, lang)}
       <section class="project-detail-tools"><h2>${copy.tools}</h2><div>${project.tools.map((tool) => `<span>${escapeHtml(tool)}</span>`).join("")}</div></section>
     </article>`;
 }
@@ -92,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const project = PROJECT_DETAILS[id];
   const mount = document.querySelector("[data-project-detail]");
   const notFound = document.querySelector("[data-project-not-found]");
+  const modal = document.querySelector("[data-evidence-modal]");
+  let lastEvidenceFocus = null;
   let language = "en";
   try { language = localStorage.getItem("portfolio-language") || "en"; } catch (_) {}
   if (!COPY[language]) language = "en";
@@ -103,6 +152,20 @@ document.addEventListener("DOMContentLoaded", () => {
     mount.hidden = false;
     mount.innerHTML = renderProject(project, language);
   };
+  const closeEvidence = () => { if (!modal) return; modal.hidden = true; modal.setAttribute("aria-hidden", "true"); lastEvidenceFocus?.focus(); };
+  mount.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-evidence-id]");
+    if (!card || !modal) return;
+    lastEvidenceFocus = card;
+    modal.querySelector("[data-evidence-modal-image]").src = card.dataset.evidenceFile;
+    modal.querySelector("[data-evidence-modal-image]").alt = card.dataset.evidenceTitle;
+    modal.querySelector("[data-evidence-modal-title]").textContent = card.dataset.evidenceTitle;
+    modal.querySelector("[data-evidence-modal-caption]").textContent = card.dataset.evidenceCaption;
+    modal.querySelector("[data-evidence-modal-label]").textContent = COPY[language].evidenceLabel;
+    modal.hidden = false; modal.setAttribute("aria-hidden", "false"); modal.querySelector("[data-evidence-modal-close]").focus();
+  });
+  modal?.addEventListener("click", (event) => { if (event.target === modal || event.target.closest("[data-evidence-modal-close]")) closeEvidence(); });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal && !modal.hidden) closeEvidence(); });
   document.querySelectorAll("[data-project-language]").forEach((button) => button.addEventListener("click", () => {
     language = button.dataset.projectLanguage;
     try { localStorage.setItem("portfolio-language", language); } catch (_) {}
