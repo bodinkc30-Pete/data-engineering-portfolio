@@ -250,6 +250,33 @@ document.addEventListener("DOMContentLoaded", () => {
     setExperience(false);
   });
 
+  const detailProjectIds = ["sql-ecommerce", "databricks-lakehouse", "influencer-intelligence", "marketing-campaign", "ecommerce-pipeline", "bigquery-enterprise", "aws-reliability", "airflow-dbt"];
+  document.querySelectorAll(".v213-projects .project-detail-grid article").forEach((card, index) => {
+    if (!detailProjectIds[index]) return;
+    card.dataset.projectId = detailProjectIds[index];
+    card.querySelectorAll("a.card-cta").forEach((link) => {
+      link.href = `project.html?id=${encodeURIComponent(detailProjectIds[index])}`;
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+    });
+  });
+  document.querySelectorAll(".project-card[data-project-id], .v213-projects .project-detail-grid article[data-project-id]").forEach((card) => {
+    card.tabIndex = 0;
+    card.setAttribute("role", "link");
+    card.setAttribute("aria-label", `${card.querySelector("h3")?.textContent?.trim() || "Project"}: view details`);
+    const openDetail = () => { window.location.href = `project.html?id=${encodeURIComponent(card.dataset.projectId)}`; };
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      openDetail();
+    });
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openDetail();
+      }
+    });
+  });
+
   requestActiveSync();
 });
 
