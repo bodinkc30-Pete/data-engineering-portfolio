@@ -39,15 +39,15 @@ test("capability rows reserve enough height for every visible line of text", () 
 });
 
 
-test("tech stack includes repository-backed cloud and transformation tools", async () => {
-  const html = await readFile(resolve(projectRoot, "index.html"), "utf8");
+test("tech stack includes repository-backed cloud and transformation tools", () => {
+  const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   assert.match(html, /<b>dbt<\/b>/);
   assert.match(html, /<b>BigQuery \/ GCP<\/b>/);
   assert.match(html, /<b>AWS<\/b>/);
   assert.match(html, /<b>Terraform<\/b>/);
 });
 
-test("compact desktop hero returns to a single-column reading flow", async () => {
-  const css = await readFile(resolve(projectRoot, "style.css"), "utf8");
+test("compact desktop hero returns to a single-column reading flow", () => {
+  const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
   assert.match(css, /@media \(min-width: 721px\) and \(max-width: 1000px\)[\s\S]*?\.hero-grid\s*\{[\s\S]*?grid-template-columns: minmax\(0, 1fr\) !important;[\s\S]*?grid-template-areas: "copy" "profile" "featured"/);
 });
