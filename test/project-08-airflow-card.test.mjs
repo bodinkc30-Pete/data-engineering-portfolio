@@ -9,13 +9,13 @@ test("Project 08 Airflow and dbt is shown in both portfolio project grids", () =
   assert.match(html, /<article class="project-detail-08">[\s\S]*?<span>08<\/span>[\s\S]*?Airflow \+ dbt E-commerce[\s\S]*?href="https:\/\/github\.com\/bodinkc30-Pete\/airflow-dbt-ecommerce-data-platform"/);
 });
 
-test("Project 08 uses verified engineering evidence artwork", () => {
+test("Project 08 uses the portfolio illustration card artwork", () => {
   const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
   const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
 
-  assert.match(html, /assets\/evidence\/projects\/project-08-evidence\.png/);
-  assert.match(css, /VERIFIED PROJECT EVIDENCE/);
-  assert.match(css, /assets\/evidence\/projects/);
+  assert.match(html, /assets\/illustrations\/projects\/cards\/project-08-airflow-dbt-ecommerce-platform\.webp/);
+  assert.match(css, /V21\.48 — portfolio illustration cards/);
+  assert.match(css, /assets\/illustrations\/projects\/cards/);
 });
 
 test("desktop home grid grows to contain the second row of eight projects", () => {

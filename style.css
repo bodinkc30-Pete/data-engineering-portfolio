@@ -8180,3 +8180,117 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* V21.48 — portfolio illustration cards */
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) {
+  height: 404px !important;
+  min-height: 404px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 9px 9px;
+}
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) .project-card-top {
+  display: none;
+}
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) .project-visual {
+  width: 100%;
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+  margin: 0 0 9px !important;
+  overflow: hidden !important;
+  border-radius: 10px;
+  transform: none !important;
+  background: #061321;
+}
+
+.project-card .project-visual img[src*="assets/illustrations/projects/cards/"] {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, rgba(255,255,255,.08));
+  border-radius: 10px;
+  background: #061321;
+  filter: none !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.30);
+  transform: none !important;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+.project-card:hover .project-visual img[src*="assets/illustrations/projects/cards/"] {
+  transform: scale(1.015) !important;
+  filter: saturate(1.05) contrast(1.02) !important;
+}
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) h3 {
+  margin-top: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.08 !important;
+}
+
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) > p {
+  height: 31px !important;
+  margin-top: 4px !important;
+  font-size: 8px !important;
+}
+.project-card:has(img[src*="assets/illustrations/projects/cards/"]) .card-cta {
+  margin-top: auto !important;
+}
+.v213-projects .project-detail-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+.v213-projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) {
+  grid-column: auto !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  padding: 14px !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.v213-projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) > span {
+  display: none !important;
+}
+
+.v213-projects .project-detail-art[src*="assets/illustrations/projects/cards/"] {
+  position: static !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  margin: 0 0 14px !important;
+  border: 1px solid color-mix(in srgb, currentColor 32%, rgba(255,255,255,.08));
+  border-radius: 12px;
+  background: #061321;
+  filter: none !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,.28);
+  transform: none !important;
+}
+.v213-projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) h3 {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.v213-projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) p {
+  min-height: 74px !important;
+}
+
+@media (max-width: 1000px) {
+  .project-card:has(img[src*="assets/illustrations/projects/cards/"]) {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .v213-projects .project-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 760px) {
+  .v213-projects .project-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .project-card:has(img[src*="assets/illustrations/projects/cards/"]) > p,
+  .v213-projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) p {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+}

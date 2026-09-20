@@ -724,3 +724,31 @@
     object-fit: cover !important;
   }
 }
+
+/* V21.48 — illustration cards responsive override */
+@media (max-width: 1099px) {
+  .project-card .project-visual img[src*="assets/illustrations/projects/cards/"] {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .project-card:has(img[src*="assets/illustrations/projects/cards/"]) .project-visual {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 0 0 9px !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+  .v213-projects .project-detail-art[src*="assets/illustrations/projects/cards/"] {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: 0 0 12px !important;
+    transform: none !important;
+    object-fit: cover !important;
+  }
+}
