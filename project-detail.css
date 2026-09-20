@@ -339,3 +339,31 @@
     min-height: 0 !important;
   }
 }
+
+/* V21.55 — show the complete 4:3 project illustration without cropping. */
+.project-detail-media .project-detail-image-wrap {
+  overflow: visible !important;
+}
+
+.project-detail-media .project-detail-image-wrap img[src*="assets/illustrations/projects/cards/"] {
+  display: block;
+  width: min(100%, 470px) !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+  .project-detail-media .project-detail-image-wrap img[src*="assets/illustrations/projects/cards/"] {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+  }
+}
