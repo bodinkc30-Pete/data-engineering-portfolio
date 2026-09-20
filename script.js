@@ -64,6 +64,13 @@ const TRANSLATIONS = {
   }
 };
 
+TRANSLATIONS.en["theme.label"] = "Theme";
+TRANSLATIONS.en["theme.black"] = "Black";
+TRANSLATIONS.en["theme.default"] = "Original";
+TRANSLATIONS.th["theme.label"] = "ธีม";
+TRANSLATIONS.th["theme.black"] = "ดำ";
+TRANSLATIONS.th["theme.default"] = "เดิม";
+
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const sidebar = document.getElementById("sidebar");
@@ -72,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = [...document.querySelectorAll('.side-nav-link[href^="#"]')];
   const sections = [...document.querySelectorAll("main section[id]")];
   const langButtons = [...document.querySelectorAll("[data-lang]")];
+  const themeButtons = [...document.querySelectorAll("[data-theme-option]")];
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
   const year = document.getElementById("current-year");
   const resumePopover = document.querySelector("[data-resume-popover]");
   const experiencePopover = document.querySelector("[data-experience-popover]");
@@ -200,6 +209,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 980) setMenu(false);
     requestActiveSync();
   });
+
+  const applyTheme = (theme, persist = true) => {
+    const resolved = theme === "default" ? "default" : "black";
+    document.documentElement.dataset.theme = resolved;
+    themeButtons.forEach((button) => {
+      const active = button.dataset.themeOption === resolved;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (themeColorMeta) themeColorMeta.setAttribute("content", resolved === "black" ? "#000000" : "#031327");
+    if (persist) {
+      try { localStorage.setItem("portfolio-theme", resolved); } catch (_) {}
+    }
+  };
+
+  themeButtons.forEach((button) => button.addEventListener("click", () => applyTheme(button.dataset.themeOption)));
+  let savedTheme = document.documentElement.dataset.theme || "black";
+  try { savedTheme = localStorage.getItem("portfolio-theme") || savedTheme; } catch (_) {}
+  applyTheme(savedTheme, false);
 
   const applyLanguage = (lang) => {
     const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;

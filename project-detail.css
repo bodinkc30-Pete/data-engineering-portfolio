@@ -367,3 +367,29 @@
     object-fit: contain !important;
   }
 }
+
+/* V21.56 — project detail pages inherit the selected portfolio theme */
+html[data-theme="black"] .project-page {
+  background: #000 !important;
+}
+html[data-theme="black"] .project-page-header,
+html[data-theme="black"] .project-detail-content,
+html[data-theme="black"] .project-detail-hero,
+html[data-theme="black"] .project-detail-evidence,
+html[data-theme="black"] .project-detail-grid article,
+html[data-theme="black"] .project-detail-section,
+html[data-theme="black"] .project-detail-tools,
+html[data-theme="black"] .project-evidence-card,
+html[data-theme="black"] .project-language-switch,
+html[data-theme="black"] .project-not-found {
+  background: linear-gradient(145deg, rgba(8, 8, 8, .98), rgba(2, 2, 2, .99)) !important;
+}
+html[data-theme="black"] .project-detail-content,
+html[data-theme="black"] .project-detail-hero,
+html[data-theme="black"] .project-detail-evidence,
+html[data-theme="black"] .project-detail-grid article,
+html[data-theme="black"] .project-detail-section,
+html[data-theme="black"] .project-detail-tools,
+html[data-theme="black"] .project-evidence-card {
+  border-color: rgba(50, 142, 194, .30) !important;
+}

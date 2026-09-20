@@ -8653,3 +8653,187 @@
     min-height: 34px !important;
   }
 }
+
+/* V21.56 — user-selectable Black / Original portfolio theme */
+.theme-panel {
+  display: grid;
+  gap: 6px;
+  margin: 0 12px 10px;
+}
+
+.theme-panel > span {
+  padding-left: 2px;
+  color: #63d8ff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.theme-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.theme-switch button {
+  min-width: 0;
+  min-height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 7px;
+  border: 1px solid rgba(47, 139, 221, .28);
+  border-radius: 8px;
+  background: rgba(4, 23, 43, .72);
+  color: #8fa5bc;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.theme-switch button svg {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+
+.theme-switch button:hover {
+  color: #e8f8ff;
+  border-color: rgba(34, 216, 255, .55);
+}
+
+.theme-switch button.active {
+  color: #f7fbff;
+  border-color: rgba(34, 216, 255, .72);
+  background: linear-gradient(180deg, rgba(0, 115, 158, .28), rgba(2, 21, 31, .86));
+  box-shadow: 0 0 16px rgba(34, 216, 255, .11), inset 0 0 12px rgba(34, 216, 255, .035);
+}
+
+/* V21.56 — user-selectable Black / Original portfolio theme */
+.theme-panel {
+  display: grid;
+  gap: 6px;
+  margin: 0 12px 10px;
+}
+.theme-panel > span {
+  padding-left: 2px;
+  color: #63d8ff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.theme-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+.theme-switch button {
+  min-width: 0;
+  min-height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 7px;
+  border: 1px solid rgba(47, 139, 221, .28);
+  border-radius: 8px;
+  background: rgba(4, 23, 43, .72);
+  color: #8fa5bc;
+  font-size: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.theme-switch button svg {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+}
+.theme-switch button.active {
+  color: #f7fbff;
+  border-color: rgba(34, 216, 255, .72);
+  background: linear-gradient(180deg, rgba(0, 115, 158, .28), rgba(2, 21, 31, .86));
+  box-shadow: 0 0 16px rgba(34, 216, 255, .11), inset 0 0 12px rgba(34, 216, 255, .035);
+}
+
+html[data-theme="black"] {
+  --bg-0: #000000;
+  --bg-1: #020202;
+  --bg-2: #050505;
+  --panel: rgba(3, 3, 3, .96);
+  --panel-soft: rgba(5, 5, 5, .88);
+  --panel-strong: rgba(7, 7, 7, .98);
+  --line: rgba(39, 147, 207, .30);
+  --line-soft: rgba(58, 154, 205, .16);
+  --shadow: 0 16px 42px rgba(0, 0, 0, .52);
+}
+html[data-theme="black"] body {
+  background:
+    radial-gradient(circle at 52% 6%, rgba(0, 129, 184, .075), transparent 28%),
+    radial-gradient(circle at 91% 14%, rgba(0, 185, 220, .045), transparent 17%),
+    #000 !important;
+}
+html[data-theme="black"] body::before {
+  opacity: .16;
+  background-image:
+    linear-gradient(rgba(78, 154, 190, .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 154, 190, .05) 1px, transparent 1px);
+}
+html[data-theme="black"] .sidebar {
+  background: linear-gradient(180deg, rgba(3, 3, 3, .99), rgba(0, 0, 0, .99)) !important;
+  border-color: rgba(49, 143, 194, .28) !important;
+}
+html[data-theme="black"] .language-switch,
+html[data-theme="black"] .mobile-language,
+html[data-theme="black"] .theme-switch button {
+  background-color: #030303 !important;
+}
+
+html[data-theme="black"] .glass-card,
+html[data-theme="black"] .dashboard-module,
+html[data-theme="black"] .featured-card,
+html[data-theme="black"] .metric-strip,
+html[data-theme="black"] .tech-strip,
+html[data-theme="black"] .project-card,
+html[data-theme="black"] .experience-v2,
+html[data-theme="black"] .engineering-loop,
+html[data-theme="black"] .project-detail-grid article,
+html[data-theme="black"] .detail-grid article,
+html[data-theme="black"] .proof-grid article,
+html[data-theme="black"] .capability-grid article,
+html[data-theme="black"] .credential-grid article,
+html[data-theme="black"] .about-values article,
+html[data-theme="black"] .resume-popover-card,
+html[data-theme="black"] .experience-popover-card {
+  background: linear-gradient(145deg, rgba(8, 8, 8, .97), rgba(2, 2, 2, .98)) !important;
+}
+html[data-theme="black"] .project-type,
+html[data-theme="black"] .mini-evidence-grid > span,
+html[data-theme="black"] .proof-icon,
+html[data-theme="black"] .cap-icon,
+html[data-theme="black"] .credential-icon,
+html[data-theme="black"] .project-tech-row span,
+html[data-theme="black"] .hero-skill-chips span,
+html[data-theme="black"] .featured-tags span,
+html[data-theme="black"] .engineering-loop span,
+html[data-theme="black"] .btn-ghost {
+  background-color: rgba(5, 5, 5, .94) !important;
+}
+html[data-theme="black"] .side-nav-link.active {
+  background: linear-gradient(90deg, rgba(0, 118, 159, .23), rgba(2, 10, 12, .82)) !important;
+}
+html[data-theme="black"] .v213-experience .experience-v2,
+html[data-theme="black"] .v213-proof .proof-grid article {
+  background: linear-gradient(145deg, rgba(8, 8, 8, .98), rgba(1, 1, 1, .99)) !important;
+}
+html[data-theme="black"] .mobile-bar {
+  background: rgba(0, 0, 0, .94) !important;
+}
+@media (max-height: 820px) and (min-width: 981px) {
+  .theme-panel { margin-bottom: 6px; gap: 4px; }
+  .theme-switch button { min-height: 27px; }
+  .language-panel { margin-top: 11px; margin-bottom: 7px; }
+}
