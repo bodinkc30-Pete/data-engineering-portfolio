@@ -64,6 +64,7 @@ const TRANSLATIONS = {
   }
 };
 
+TRANSLATIONS.en["moon.hero.hello"] = "Hello, I'm";
 TRANSLATIONS.en["appearance.label"] = "Appearance";
 TRANSLATIONS.en["appearance.sun"] = "Sun";
 TRANSLATIONS.en["appearance.moon"] = "Moon";
@@ -74,6 +75,11 @@ TRANSLATIONS.en["education.lead"] = "Formal education and structured learning th
 TRANSLATIONS.en["education.bootcamp"] = "Hands-on data science and engineering practice through structured projects.";
 TRANSLATIONS.en["education.degree"] = "Legal foundation strengthened analytical reasoning, structured problem solving, and communication.";
 TRANSLATIONS.en["filters.all"] = "All";
+TRANSLATIONS.en["moon.about.focus"] = "Data Engineering / Data Platform / Reliability";
+TRANSLATIONS.en["moon.about.current"] = "Production-style systems and business impact";
+TRANSLATIONS.en["moon.about.learning"] = "Cloud / Lakehouse / Orchestration";
+TRANSLATIONS.en["moon.about.open"] = "Open to Data Engineering opportunities";
+TRANSLATIONS.th["moon.hero.hello"] = "สวัสดี ผม";
 TRANSLATIONS.th["appearance.label"] = "รูปแบบ";
 TRANSLATIONS.th["appearance.sun"] = "Sun";
 TRANSLATIONS.th["appearance.moon"] = "Moon";
@@ -84,6 +90,32 @@ TRANSLATIONS.th["education.lead"] = "การศึกษาและการ�
 TRANSLATIONS.th["education.bootcamp"] = "ฝึกปฏิบัติด้าน Data Science และ Data Engineering ผ่านโปรเจกต์ที่มีโครงสร้างชัดเจน";
 TRANSLATIONS.th["education.degree"] = "พื้นฐานด้านกฎหมายช่วยเสริมการคิดวิเคราะห์ การแก้ปัญหาอย่างเป็นระบบ และการสื่อสาร";
 TRANSLATIONS.th["filters.all"] = "ทั้งหมด";
+TRANSLATIONS.th["moon.about.focus"] = "Data Engineering / Data Platform / Reliability";
+TRANSLATIONS.th["moon.about.current"] = "ระบบแบบ Production-style ที่เชื่อมโยงกับผลลัพธ์ทางธุรกิจ";
+TRANSLATIONS.th["moon.about.learning"] = "Cloud / Lakehouse / Orchestration";
+TRANSLATIONS.th["moon.about.open"] = "เปิดรับโอกาสงานด้าน Data Engineering";
+TRANSLATIONS.en["moon.exp.period"] = "AUG 2025 – PRESENT";
+TRANSLATIONS.en["moon.exp.b1"] = "Build and maintain recurring data pipelines from TikTok Shop, Shopee and Lazada exports.";
+TRANSLATIONS.en["moon.exp.b2"] = "Clean, validate, standardize and deduplicate operational datasets.";
+TRANSLATIONS.en["moon.exp.b3"] = "Analyze sales, advertising, SKU and campaign performance.";
+TRANSLATIONS.en["moon.exp.b4"] = "Prepare reconciliation data and reporting for business teams.";
+TRANSLATIONS.en["moon.exp.b5"] = "Reduce repetitive preparation through reusable automation.";
+TRANSLATIONS.en["moon.exp.labs"] = "Portfolio Engineering Labs";
+TRANSLATIONS.en["moon.exp.projects"] = "Data Engineering Projects";
+TRANSLATIONS.en["moon.exp.lab1"] = "SQL, PostgreSQL, Airflow, dbt, Databricks, BigQuery and AWS project evidence.";
+TRANSLATIONS.en["moon.exp.lab2"] = "Reliability labs, data quality, recovery, lineage and CI validation.";
+TRANSLATIONS.en["moon.exp.lab3"] = "Eight completed portfolio projects with public repository evidence.";
+TRANSLATIONS.th["moon.exp.period"] = "ส.ค. 2025 – ปัจจุบัน";
+TRANSLATIONS.th["moon.exp.b1"] = "สร้างและดูแลกระบวนการข้อมูลที่เกิดซ้ำจาก TikTok Shop, Shopee และ Lazada";
+TRANSLATIONS.th["moon.exp.b2"] = "ทำความสะอาด ตรวจสอบ จัดมาตรฐาน และลดข้อมูลซ้ำของชุดข้อมูลเชิงปฏิบัติการ";
+TRANSLATIONS.th["moon.exp.b3"] = "วิเคราะห์ยอดขาย โฆษณา SKU และประสิทธิภาพของแคมเปญ";
+TRANSLATIONS.th["moon.exp.b4"] = "เตรียมข้อมูลกระทบยอดและรายงานสำหรับทีมธุรกิจ";
+TRANSLATIONS.th["moon.exp.b5"] = "ลดงานเตรียมข้อมูลซ้ำด้วย Workflow ที่นำกลับมาใช้ได้";
+TRANSLATIONS.th["moon.exp.labs"] = "Portfolio Engineering Labs";
+TRANSLATIONS.th["moon.exp.projects"] = "โปรเจกต์ Data Engineering";
+TRANSLATIONS.th["moon.exp.lab1"] = "หลักฐานโปรเจกต์ SQL, PostgreSQL, Airflow, dbt, Databricks, BigQuery และ AWS";
+TRANSLATIONS.th["moon.exp.lab2"] = "Reliability labs, Data Quality, Recovery, Lineage และ CI validation";
+TRANSLATIONS.th["moon.exp.lab3"] = "Portfolio จำนวน 8 โปรเจกต์พร้อมหลักฐาน Repository สาธารณะ";
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
@@ -297,26 +329,84 @@ document.addEventListener("DOMContentLoaded", () => {
     const lang = document.documentElement.lang === "th" ? "th" : "en";
     const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
     const isMoon = document.documentElement.dataset.style === "moon";
-    const moonNumbers = {
-      "section.about": "02",
-      "section.experience": "03",
-      "section.capabilities": "05",
-      "section.projects": "06",
-      "section.proof": "07",
-      "section.credentials": "08",
-      "section.contact": "09"
+    const moonLabels = {
+      "section.about": "02 / ABOUT",
+      "section.experience": "03 / EXPERIENCE",
+      "section.capabilities": "05 / SKILLS",
+      "section.projects": "06 / PROJECTS",
+      "section.contact": "08 / CONTACT"
     };
 
-    Object.entries(moonNumbers).forEach(([key, number]) => {
+    Object.entries(moonLabels).forEach(([key, label]) => {
       const el = document.querySelector(`[data-i18n="${key}"]`);
       if (!el || !dict[key]) return;
-      if (!isMoon) {
-        el.textContent = dict[key];
-        return;
-      }
-      const suffix = dict[key].split("/").slice(1).join("/").trim();
-      el.textContent = `${number} / ${suffix}`;
+      el.textContent = isMoon ? label : dict[key];
     });
+
+    const capabilitiesNav = document.querySelector('[data-section="capabilities"] [data-i18n="nav.capabilities"]');
+    if (capabilitiesNav && dict["nav.capabilities"]) {
+      capabilitiesNav.textContent = isMoon ? (lang === "th" ? "ทักษะ" : "Skills") : dict["nav.capabilities"];
+    }
+
+    const capHeading = document.querySelector('#capabilities [data-i18n="cap.fullHeading"]');
+    if (capHeading && dict["cap.fullHeading"]) {
+      capHeading.textContent = isMoon ? (lang === "th" ? "ทักษะและเครื่องมือที่ใช้จริง" : "Skills") : dict["cap.fullHeading"];
+    }
+
+    const capLead = document.querySelector('#capabilities [data-i18n="cap.fullLead"]');
+    if (capLead && dict["cap.fullLead"]) {
+      capLead.textContent = isMoon ? (lang === "th" ? "เครื่องมือ เทคโนโลยี และจุดสนใจที่รองรับด้วยโปรเจกต์จริง" : "Tools, technologies, and engineering focus areas backed by completed project work.") : dict["cap.fullLead"];
+    }
+
+    const heroRole = document.querySelector(".hero-role");
+    if (heroRole) heroRole.textContent = isMoon ? "DATA ENGINEER | E-COMMERCE | DATA PLATFORM" : "DATA ENGINEER";
+
+    const heroMotto = document.querySelector('.hero-motto[data-i18n="hero.motto"]');
+    if (heroMotto && dict["hero.motto"]) {
+      heroMotto.textContent = isMoon
+        ? (lang === "th" ? "เปลี่ยนข้อมูลให้เป็นระบบที่เชื่อถือได้และสร้างผลลัพธ์ทางธุรกิจ" : "Turning data into reliable systems and real business impact.")
+        : dict["hero.motto"];
+    }
+
+    const aboutHeading = document.querySelector('#about [data-i18n="about.heading"]');
+    if (aboutHeading && dict["about.heading"]) {
+      aboutHeading.textContent = isMoon ? (lang === "th" ? "เกี่ยวกับผม" : "About Me") : dict["about.heading"];
+    }
+
+    const aboutLead = document.querySelector('#about [data-i18n="about.p1"]');
+    if (aboutLead && dict["about.p1"]) {
+      aboutLead.textContent = isMoon
+        ? (lang === "th"
+          ? "ผม บดินทร์ ครองชนม์ ทำงานด้าน Data Engineering โดยเน้นระบบข้อมูลที่เชื่อถือได้ การแก้ปัญหาทางธุรกิจ และการพัฒนาทักษะด้าน Cloud, Lakehouse และ Platform Engineering"
+          : "I'm Bodin Krongchon, a Data Engineer focused on reliable data systems, real business problems, and continuous learning across cloud, lakehouse, and platform engineering.")
+        : dict["about.p1"];
+    }
+
+    const experienceHeading = document.querySelector('#experience [data-i18n="exp.fullHeading"]');
+    if (experienceHeading && dict["exp.fullHeading"]) {
+      experienceHeading.textContent = isMoon ? (lang === "th" ? "ประสบการณ์" : "Experience") : dict["exp.fullHeading"];
+    }
+
+    const experienceLead = document.querySelector('#experience [data-i18n="exp.fullLead"]');
+    if (experienceLead && dict["exp.fullLead"]) {
+      experienceLead.textContent = isMoon
+        ? (lang === "th" ? "เปลี่ยนงานข้อมูลเชิงปฏิบัติการให้เป็นระบบที่วัดผลและนำกลับมาใช้ได้" : "Turning operational data into reliable systems and measurable business impact.")
+        : dict["exp.fullLead"];
+    }
+
+    const contactHeading = document.querySelector('#contact [data-contact-heading]');
+    if (contactHeading) {
+      contactHeading.innerHTML = isMoon ? (lang === "th" ? "ติดต่อ" : "Contact") : (lang === "th"
+        ? 'มาสร้างระบบข้อมูลที่<br><span class="accent">เชื่อถือได้</span>กัน<span class="accent-dot">.</span>'
+        : 'Let\'s build <span class="accent">reliable</span><br>data systems<span class="accent-dot">.</span>');
+    }
+
+    const contactLead = document.querySelector('#contact [data-i18n="contact.fullLead"]');
+    if (contactLead && dict["contact.fullLead"]) {
+      contactLead.textContent = isMoon
+        ? (lang === "th" ? "เปิดรับโอกาสงาน การรีวิว Portfolio และการพูดคุยด้าน Data Engineering" : "Let's build something great. Reach out for opportunities, portfolio review, or Data Engineering conversations.")
+        : dict["contact.fullLead"];
+    }
   }
 
   const applyLanguage = (lang) => {

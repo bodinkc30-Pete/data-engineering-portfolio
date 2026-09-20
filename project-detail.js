@@ -137,15 +137,36 @@ function updateStaticCopy(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const id = new URLSearchParams(window.location.search).get("id");
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
   const project = PROJECT_DETAILS[id];
   const mount = document.querySelector("[data-project-detail]");
+  const styleButtons = [...document.querySelectorAll("[data-project-style]")];
   const notFound = document.querySelector("[data-project-not-found]");
   const modal = document.querySelector("[data-evidence-modal]");
   let lastEvidenceFocus = null;
   let language = "en";
   try { language = localStorage.getItem("portfolio-language") || "en"; } catch (_) {}
   if (!COPY[language]) language = "en";
+
+  const applyProjectStyle = (style, persist = true) => {
+    const resolved = style === "moon" ? "moon" : "sun";
+    document.documentElement.dataset.style = resolved;
+    document.documentElement.dataset.theme = "black";
+    styleButtons.forEach((button) => {
+      const active = button.dataset.projectStyle === resolved;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (persist) {
+      try { localStorage.setItem("portfolio-style", resolved); } catch (_) {}
+    }
+  };
+
+  styleButtons.forEach((button) => button.addEventListener("click", () => applyProjectStyle(button.dataset.projectStyle)));
+  let style = params.get("style") || document.documentElement.dataset.style || "sun";
+  try { style = params.get("style") || localStorage.getItem("portfolio-style") || style; } catch (_) {}
+  applyProjectStyle(style, false);
 
   const show = () => {
     updateStaticCopy(language);

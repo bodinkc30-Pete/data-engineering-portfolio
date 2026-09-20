@@ -29,3 +29,23 @@ test("Moon mode adds education, project filters, and persists on project detail 
   assert.match(detail, /portfolio-style/);
   assert.match(detail, /moon-theme\.css/);
 });
+
+test("Moon blueprint uses the requested seven sidebar sections and dedicated section layouts", () => {
+  const home = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const css = fs.readFileSync(new URL("../moon-theme.css", import.meta.url), "utf8");
+  assert.match(home, /class="moon-about-visual moon-only"/);
+  assert.match(home, /class="moon-experience-timeline moon-only"/);
+  assert.match(home, /class="moon-skills-layout moon-only"/);
+  assert.match(css, /side-nav-link\[data-section="proof"\][\s\S]*display:\s*none/);
+  assert.match(css, /side-nav-link\[data-section="credentials"\][\s\S]*display:\s*none/);
+  assert.match(css, /#capabilities \.v228-cap-grid \{ display:none/);
+});
+
+test("Moon project detail has its own sidebar and Sun-Moon switch", () => {
+  const html = fs.readFileSync(new URL("../project.html", import.meta.url), "utf8");
+  const js = fs.readFileSync(new URL("../project-detail.js", import.meta.url), "utf8");
+  assert.match(html, /class="moon-detail-sidebar moon-only"/);
+  assert.match(html, /data-project-style="sun"/);
+  assert.match(html, /data-project-style="moon"/);
+  assert.match(js, /applyProjectStyle/);
+});

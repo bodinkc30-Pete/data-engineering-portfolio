@@ -1077,3 +1077,426 @@ html[data-style="moon"] .moon-education-timeline {
     min-height: 38px !important;
   }
 }
+
+/* V21.70 — Moon visual blueprint alignment */
+html[data-style="moon"] .side-nav-link[data-section="proof"],
+html[data-style="moon"] .side-nav-link[data-section="credentials"],
+html[data-style="moon"] #proof,
+html[data-style="moon"] #credentials {
+  display: none !important;
+}
+
+html[data-style="moon"] #home { order: 1; }
+html[data-style="moon"] #about { order: 2; }
+html[data-style="moon"] #experience { order: 3; }
+html[data-style="moon"] #education { order: 4; }
+html[data-style="moon"] #capabilities { order: 5; }
+html[data-style="moon"] #projects { order: 6; }
+html[data-style="moon"] #contact { order: 7; }
+
+html[data-style="moon"] .side-nav-link[data-section="home"] { order: 1; }
+html[data-style="moon"] .side-nav-link[data-section="about"] { order: 2; }
+html[data-style="moon"] .side-nav-link[data-section="experience"] { order: 3; }
+html[data-style="moon"] .side-nav-link[data-section="education"] { order: 4; }
+html[data-style="moon"] .side-nav-link[data-section="capabilities"] { order: 5; }
+html[data-style="moon"] .side-nav-link[data-section="projects"] { order: 6; }
+html[data-style="moon"] .side-nav-link[data-section="contact"] { order: 7; }
+
+@media (min-width:1100px) {
+  html[data-style="moon"][lang="en"] .v229-proof,
+  html[data-style="moon"][lang="en"] .v229-capabilities,
+  html[data-style="moon"][lang="en"] .v229-about,
+  html[data-style="moon"][lang="en"] .v229-credentials {
+    aspect-ratio: auto !important;
+    background-image: none !important;
+    overflow: visible !important;
+  }
+
+  html[data-style="moon"][lang="en"] .v229-about > .page-shell,
+  html[data-style="moon"][lang="en"] .v229-capabilities > .page-shell,
+  html[data-style="moon"][lang="en"] .v229-proof > .page-shell,
+  html[data-style="moon"][lang="en"] .v229-credentials > .page-shell {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+  }
+}
+
+html[data-style="moon"] #about .about-layout {
+  grid-template-columns: minmax(0,1fr) minmax(300px,360px) !important;
+  gap: 46px !important;
+  align-items: center !important;
+}
+
+html[data-style="moon"] #about .v228-about-values {
+  display: none !important;
+}
+
+html[data-style="moon"] .moon-about-visual {
+  position: relative;
+  display: block !important;
+  min-height: 390px;
+  border: 1px solid rgba(78,148,215,.22);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #07111e;
+  box-shadow: 0 20px 46px rgba(0,0,0,.34);
+}
+
+html[data-style="moon"] .moon-about-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.82) contrast(1.05) brightness(.78);
+}
+
+html[data-style="moon"] .moon-about-quote {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: min(72%, 250px);
+  padding: 16px 17px;
+  border: 1px solid rgba(91,164,255,.28);
+  border-radius: 13px;
+  background: rgba(3,10,18,.86);
+  color: #f4f8ff;
+  font-size: 15px;
+  line-height: 1.45;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.32);
+}
+
+html[data-style="moon"] .moon-about-quote small {
+  display: block;
+  margin-top: 9px;
+  color: #6faeff;
+  font-size: 10px;
+  letter-spacing: .04em;
+}
+
+html[data-style="moon"] .moon-about-facts {
+  gap: 8px !important;
+}
+
+html[data-style="moon"] .moon-about-facts span {
+  min-height: 40px !important;
+  display: grid !important;
+  grid-template-columns: 24px minmax(0,1fr);
+  gap: 8px;
+  padding: 0 12px !important;
+  border: 1px solid rgba(75,141,205,.18);
+  background: rgba(6,15,26,.66);
+}
+
+html[data-style="moon"] .moon-about-facts i {
+  color: #58a7ff;
+  font-style: normal;
+  text-align: center;
+}
+
+html[data-style="moon"] #experience .experience-v2 {
+  display: none !important;
+}
+
+html[data-style="moon"] .moon-experience-timeline {
+  position: relative;
+  display: grid !important;
+  gap: 16px;
+  margin-top: 6px;
+  padding-left: 26px;
+}
+
+html[data-style="moon"] .moon-experience-timeline::before {
+  content:"";
+  position:absolute;
+  left:7px;
+  top:18px;
+  bottom:18px;
+  width:2px;
+  background: linear-gradient(#58a8ff,rgba(88,168,255,.08));
+}
+
+html[data-style="moon"] .moon-experience-timeline article {
+  position: relative;
+  display: grid;
+  grid-template-columns: 145px minmax(0,1fr) 86px;
+  gap: 24px;
+  align-items: start;
+  padding: 22px 24px;
+  border: 1px solid rgba(75,141,205,.20);
+  border-radius: 15px;
+  background: linear-gradient(145deg,rgba(10,19,33,.94),rgba(5,12,22,.97));
+}
+html[data-style="moon"] .moon-experience-timeline article::before {
+  content:"";
+  position:absolute;
+  left:-25px;
+  top:30px;
+  width:10px;height:10px;
+  border:2px solid #59a8ff;
+  border-radius:50%;
+  background:#020711;
+  box-shadow:0 0 14px rgba(89,168,255,.38);
+}
+html[data-style="moon"] .moon-exp-date { color:#6eafff;font-size:11px;font-weight:800;letter-spacing:.07em; }
+html[data-style="moon"] .moon-exp-copy h3 { margin:0;color:#f1f6fd;font-size:20px; }
+html[data-style="moon"] .moon-exp-copy strong { display:block;margin-top:5px;color:#70adfa;font-size:12px; }
+html[data-style="moon"] .moon-exp-copy ul { margin:12px 0 0;padding-left:17px;color:#8499b0;font-size:12px;line-height:1.55; }
+html[data-style="moon"] .moon-exp-mark {
+  width:72px;height:72px;display:grid;place-items:center;
+  border:1px solid rgba(79,151,225,.25);border-radius:13px;background:rgba(7,16,28,.82);
+}
+html[data-style="moon"] .moon-exp-mark img { max-width:58px;max-height:52px;object-fit:contain; }
+html[data-style="moon"] .moon-exp-bk { color:#66aaff;font-size:24px;font-weight:900;letter-spacing:-.05em; }
+
+html[data-style="moon"] .moon-education-timeline article {
+  grid-template-columns:130px minmax(0,1fr) 74px !important;
+  align-items:center;
+}
+html[data-style="moon"] .moon-education-badge {
+  width:62px;height:62px;display:grid;place-items:center;
+  border:1px solid rgba(90,164,255,.26);border-radius:50%;
+  background:rgba(7,16,28,.86);color:#69adff;font-weight:900;font-size:16px;
+  box-shadow:0 0 18px rgba(70,150,255,.10);
+}
+
+html[data-style="moon"] #capabilities .v228-cap-grid { display:none !important; }
+html[data-style="moon"] #capabilities .v228-cap-heading h2::first-letter { text-transform:none; }
+
+html[data-style="moon"] .moon-skills-layout {
+  display:grid !important;
+  grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);
+  gap:16px;
+  margin-top:4px;
+}
+html[data-style="moon"] .moon-tool-panel,
+html[data-style="moon"] .moon-focus-panel {
+  padding:18px;
+  border:1px solid rgba(75,141,205,.20);
+  border-radius:15px;
+  background:linear-gradient(145deg,rgba(10,19,33,.94),rgba(5,12,22,.97));
+}
+html[data-style="moon"] .moon-tool-panel h3,
+html[data-style="moon"] .moon-focus-panel h3 {
+  margin:0 0 14px;
+  color:#82b8ff;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+html[data-style="moon"] .moon-tool-grid {
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:9px;
+}
+html[data-style="moon"] .moon-tool-grid article {
+  min-height:86px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:10px 6px;
+  border:1px solid rgba(76,138,199,.17);
+  border-radius:11px;
+  background:rgba(6,15,27,.80);
+}
+html[data-style="moon"] .moon-tool-grid img {
+  width:34px;height:34px;object-fit:contain;
+}
+html[data-style="moon"] .moon-tool-grid article > span {
+  min-width:34px;height:34px;display:grid;place-items:center;
+  color:#72b3ff;font-size:11px;font-weight:900;
+  border:1px solid rgba(86,159,236,.20);border-radius:8px;
+}
+html[data-style="moon"] .moon-tool-grid b { color:#c8d8e9;font-size:10px;text-align:center; }
+html[data-style="moon"] .moon-focus-panel ul { list-style:none;margin:0;padding:0;display:grid;gap:9px; }
+html[data-style="moon"] .moon-focus-panel li {
+  position:relative;padding:10px 12px 10px 34px;
+  border:1px solid rgba(76,138,199,.14);border-radius:9px;
+  color:#93a9c0;font-size:11px;background:rgba(6,15,27,.68);
+}
+html[data-style="moon"] .moon-focus-panel li::before {
+  content:"◇";position:absolute;left:12px;top:9px;color:#58a8ff;
+}
+
+html[data-style="moon"] .moon-detail-sidebar {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  bottom: 16px;
+  z-index: 1200;
+  width: 176px;
+  display: flex !important;
+  flex-direction: column;
+  padding: 16px 12px;
+  border: 1px solid rgba(75,141,205,.22);
+  border-radius: 16px;
+  background: rgba(2,8,15,.96);
+  box-shadow: 14px 0 42px rgba(0,0,0,.28);
+}
+html[data-style="moon"] .moon-detail-brand {
+  display:flex;align-items:center;gap:9px;
+  padding:4px 5px 14px;
+  border-bottom:1px solid rgba(76,138,199,.14);
+}
+html[data-style="moon"] .moon-detail-brand img { width:40px;height:40px;object-fit:contain; }
+html[data-style="moon"] .moon-detail-brand span { color:#f0f6ff;font-size:10px;font-weight:800;letter-spacing:.05em; }
+html[data-style="moon"] .moon-detail-brand small { display:block;margin-top:2px;color:#65a9ff;font-size:7px;letter-spacing:.12em; }
+html[data-style="moon"] .moon-detail-sidebar nav { display:grid;gap:4px;margin-top:14px; }
+html[data-style="moon"] .moon-detail-sidebar nav a {
+  min-height:34px;display:flex;align-items:center;padding:0 10px;
+  border:1px solid transparent;border-radius:8px;color:#8da2ba;font-size:10px;font-weight:600;
+}
+html[data-style="moon"] .moon-detail-sidebar nav a:hover,
+html[data-style="moon"] .moon-detail-sidebar nav a.active {
+  color:#f1f7ff;border-color:rgba(83,154,232,.45);
+  background:linear-gradient(90deg,rgba(41,104,180,.34),rgba(5,14,25,.78));
+  box-shadow:inset 3px 0 0 #4c9fff;
+}
+html[data-style="moon"] .moon-detail-controls { margin-top:auto;display:grid;gap:6px; }
+html[data-style="moon"] .moon-detail-controls > span { color:#607995;font-size:7px;text-transform:uppercase;letter-spacing:.10em; }
+html[data-style="moon"] .moon-detail-controls > div { display:grid;grid-template-columns:1fr 1fr;gap:5px; }
+html[data-style="moon"] .moon-detail-controls button {
+  min-height:28px;border:1px solid rgba(76,138,199,.23);border-radius:7px;
+  background:rgba(6,15,27,.84);color:#869ab1;font-size:9px;cursor:pointer;
+}
+html[data-style="moon"] .moon-detail-controls button.active {
+  color:white;border-color:#58a8ff;background:rgba(45,101,180,.34);
+}
+html[data-style="moon"] body.project-page .project-page-shell {
+  width:min(1180px,calc(100% - 240px)) !important;
+  margin-left:214px !important;
+  margin-right:auto !important;
+}
+html[data-style="moon"] body.project-page .project-page-header {
+  display:none !important;
+}
+
+html[data-style="moon"] #contact .contact-layout {
+  position: relative !important;
+  inset: auto !important;
+}
+
+@media (max-width: 1100px) {
+  html[data-style="moon"] #about .about-layout {
+    grid-template-columns: 1fr !important;
+  }
+  html[data-style="moon"] .moon-about-visual {
+    min-height: 340px;
+  }
+  html[data-style="moon"] .moon-about-visual img {
+    min-height: 340px;
+  }
+  html[data-style="moon"] .moon-skills-layout {
+    grid-template-columns: 1fr !important;
+  }
+  html[data-style="moon"] .moon-tool-grid {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  html[data-style="moon"] .moon-detail-sidebar {
+    display:none !important;
+  }
+  html[data-style="moon"] body.project-page .project-page-shell {
+    width:min(100% - 30px, 1180px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  html[data-style="moon"] body.project-page .project-page-header {
+    display:flex !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html[data-style="moon"] .moon-experience-timeline {
+    padding-left:18px;
+  }
+  html[data-style="moon"] .moon-experience-timeline article {
+    grid-template-columns:1fr !important;
+    gap:10px;
+    padding:18px;
+  }
+  html[data-style="moon"] .moon-exp-mark {
+    width:56px;height:56px;
+  }
+  html[data-style="moon"] .moon-education-timeline article {
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+  html[data-style="moon"] .moon-education-badge {
+    width:50px;height:50px;
+  }
+  html[data-style="moon"] .moon-tool-grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  html[data-style="moon"] .moon-about-visual,
+  html[data-style="moon"] .moon-about-visual img {
+    min-height:300px;
+  }
+}
+
+html[data-style="moon"] .moon-hello {
+  display:block !important;
+  margin-top:18px;
+  color:#9db0c5;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.01em;
+}
+html[data-style="moon"] .hero-copy .status-pill {
+  display:none !important;
+}
+html[data-style="moon"] #projects .projects-fidelity-heading > * {
+  display:none !important;
+}
+html[data-style="moon"] #projects .projects-fidelity-heading::after {
+  content:"Projects";
+  display:block;
+  color:#f4f8ff;
+  font-size:clamp(40px,4.2vw,58px);
+  line-height:.98;
+  letter-spacing:-.045em;
+}
+html[data-style="moon"][lang="th"] #projects .projects-fidelity-heading::after {
+  content:"โปรเจกต์";
+}
+html[data-style="moon"] #contact .v231-line-row,
+html[data-style="moon"] #contact a[href*="badge-portal"] {
+  display:none !important;
+}
+html[data-style="moon"] #contact .v224-contact-list {
+  align-self:center;
+}
+
+html[data-style="moon"] #about [data-i18n="about.p2"] {
+  display:none !important;
+}
+
+/* V21.71 — reset legacy reference-layout offsets inside Moon */
+@media (min-width:1100px) {
+  html[data-style="moon"] #about > .page-shell,
+  html[data-style="moon"] #capabilities > .page-shell {
+    position: relative !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: min(1180px, calc(100% - 56px)) !important;
+    max-width: 1180px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+html[data-style="moon"] .command-wrap {
+  box-sizing: border-box;
+  width: calc(100vw - var(--main-left) - var(--page-right) - 8px) !important;
+  max-width: calc(100vw - var(--main-left) - var(--page-right) - 8px) !important;
+}
