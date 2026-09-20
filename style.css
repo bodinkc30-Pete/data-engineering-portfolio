@@ -8405,3 +8405,123 @@
     top: -2px !important;
   }
 }
+
+/* V21.51 — featured content uses a true two-column composition to remove dead space. */
+@media (min-width: 1261px) {
+  .featured-card {
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: center !important;
+    padding-bottom: 11px !important;
+  }
+
+  .featured-main {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 184px;
+    align-items: start;
+    gap: 14px;
+    margin-top: 5px;
+  }
+
+  .featured-main-copy {
+    min-width: 0;
+  }
+
+  .featured-main-copy h2 {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.08 !important;
+    white-space: normal !important;
+    text-wrap: balance;
+  }
+
+  .featured-main-copy > p {
+    max-width: 100% !important;
+    margin-top: 4px !important;
+    font-size: 8.9px !important;
+    line-height: 1.34 !important;
+  }
+
+  .featured-main .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    position: static !important;
+    width: 184px !important;
+    height: 138px !important;
+    aspect-ratio: 4 / 3 !important;
+    justify-self: end;
+    align-self: start;
+    margin: 0 !important;
+    inset: auto !important;
+  }
+
+  .featured-main-copy .medallion-flow {
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 10px !important;
+    grid-template-columns: minmax(72px,1fr) 10px minmax(72px,1fr) 10px minmax(72px,1fr) 10px minmax(84px,1.08fr) !important;
+    gap: 3px !important;
+  }
+
+  .featured-main-copy .featured-tags {
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 4px !important;
+  }
+
+  .featured-card .featured-evidence {
+    margin-top: 8px !important;
+    min-height: 43px !important;
+  }
+
+  .featured-card .featured-actions {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 8px !important;
+    grid-template-columns: .97fr 1.03fr !important;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1260px) {
+  .featured-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 156px;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .featured-main .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    position: static !important;
+    width: 156px !important;
+    height: 117px !important;
+    inset: auto !important;
+    margin: 0 !important;
+  }
+
+  .featured-main-copy .medallion-flow,
+  .featured-main-copy .featured-tags {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .featured-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .featured-main .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    position: static !important;
+    width: 100% !important;
+    max-width: 280px;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    justify-self: center;
+    inset: auto !important;
+  }
+}
