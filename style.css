@@ -8525,3 +8525,131 @@
     inset: auto !important;
   }
 }
+
+/* V21.52 — featured card fills hero height and keeps the full medallion flow on one row. */
+@media (min-width: 1261px) {
+  .hero-grid > .featured-card {
+    align-self: stretch !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 14px 16px 14px 0 !important;
+    padding: 10px 14px !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    row-gap: 6px;
+  }
+
+  .hero-grid > .featured-card .featured-main {
+    min-height: 0;
+    height: 100%;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(245px, 38%) !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    margin: 0 !important;
+  }
+
+  .hero-grid > .featured-card .featured-main-copy {
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .hero-grid > .featured-card .featured-main-copy h2 {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: 14.8px !important;
+    line-height: 1.08 !important;
+  }
+
+  .hero-grid > .featured-card .featured-main-copy > p {
+    max-width: 100% !important;
+    margin: 4px 0 0 !important;
+    font-size: 8.65px !important;
+    line-height: 1.32 !important;
+  }
+
+  .hero-grid > .featured-card .featured-main .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 184px !important;
+    aspect-ratio: 4 / 3 !important;
+    align-self: center !important;
+    justify-self: stretch !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .hero-grid > .featured-card .featured-main-copy .medallion-flow {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-top: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1.08fr) !important;
+    gap: 4px !important;
+    align-items: center !important;
+  }
+
+  .hero-grid > .featured-card .medallion-flow span {
+    min-width: 0 !important;
+    min-height: 40px !important;
+    padding: 4px 3px !important;
+  }
+
+  .hero-grid > .featured-card .medallion-flow b {
+    font-size: 7.25px !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-grid > .featured-card .medallion-flow small {
+    font-size: 6.55px !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-grid > .featured-card .medallion-flow i {
+    width: 12px;
+    text-align: center;
+    font-size: 10px !important;
+  }
+
+  .hero-grid > .featured-card .featured-tags {
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 4px !important;
+    flex-wrap: nowrap !important;
+    gap: 3px !important;
+  }
+
+  .hero-grid > .featured-card .featured-tags span {
+    min-width: 0;
+    padding-inline: 5px !important;
+    font-size: 6.55px !important;
+    white-space: nowrap;
+  }
+
+  .hero-grid > .featured-card .featured-evidence {
+    margin-top: 0 !important;
+    min-height: 45px !important;
+  }
+
+  .hero-grid > .featured-card .featured-evidence > div {
+    padding: 5px 7px 2px !important;
+  }
+
+  .hero-grid > .featured-card .featured-actions {
+    position: static !important;
+    inset: auto !important;
+    margin-top: 0 !important;
+    gap: 8px !important;
+  }
+
+  .hero-grid > .featured-card .featured-actions .btn {
+    min-height: 34px !important;
+  }
+}
