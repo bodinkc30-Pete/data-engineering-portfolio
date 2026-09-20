@@ -8294,3 +8294,41 @@
     min-height: 0 !important;
   }
 }
+
+/* V21.49 — featured project uses the new illustration card artwork. */
+.featured-visual[src*="assets/illustrations/projects/cards/project-02-databricks-lakehouse-medallion"] {
+  width: 214px !important;
+  height: 160px !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  right: -2px !important;
+  top: -15px !important;
+  border: 1px solid rgba(126, 96, 255, .42);
+  border-radius: 12px;
+  background: #061321;
+  filter: none !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,.30);
+  transform: none !important;
+}
+@media (min-width: 1261px) {
+  .featured-title-row:has(.featured-visual[src*="project-02-databricks-lakehouse-medallion"]) {
+    padding-right: 220px !important;
+  }
+}
+@media (min-width: 721px) and (max-width: 1260px) {
+  .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    width: 178px !important;
+    height: 134px !important;
+    top: -8px !important;
+  }
+}
+@media (max-width: 720px) {
+  .featured-visual[src*="project-02-databricks-lakehouse-medallion"] {
+    position: relative !important;
+    width: 128px !important;
+    height: 96px !important;
+    top: auto !important;
+    right: auto !important;
+  }
+}
