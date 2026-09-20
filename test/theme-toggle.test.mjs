@@ -2,27 +2,30 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import test from "node:test";
 
-test("sidebar exposes Black and Original theme controls", () => {
+test("sidebar exposes Sun and Moon appearance controls", () => {
   const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
-  assert.match(html, /class="theme-panel"/);
-  assert.match(html, /data-theme-option="black"/);
-  assert.match(html, /data-theme-option="default"/);
-  assert.match(html, /data-i18n="theme\.black"/);
-  assert.match(html, /data-i18n="theme\.default"/);
+  assert.match(html, /class="theme-panel appearance-panel"/);
+  assert.match(html, /data-style-option="sun"/);
+  assert.match(html, /data-style-option="moon"/);
+  assert.match(html, /data-i18n="appearance\.sun"/);
+  assert.match(html, /data-i18n="appearance\.moon"/);
 });
 
-test("theme choice persists and black theme has dedicated CSS", () => {
+test("style choice persists and Moon has a dedicated presentation layer", () => {
   const js = fs.readFileSync(new URL("../script.js", import.meta.url), "utf8");
-  const css = fs.readFileSync(new URL("../style.css", import.meta.url), "utf8");
-  assert.match(js, /portfolio-theme/);
-  assert.match(js, /document\.documentElement\.dataset\.theme/);
-  assert.match(css, /html\[data-theme="black"\] body/);
-  assert.match(css, /V21\.56/);
+  const css = fs.readFileSync(new URL("../moon-theme.css", import.meta.url), "utf8");
+  assert.match(js, /portfolio-style/);
+  assert.match(js, /document\.documentElement\.dataset\.style/);
+  assert.match(css, /html\[data-style="moon"\] body/);
+  assert.match(css, /Moon Design Mode/);
 });
 
-test("project detail pages inherit the saved theme", () => {
-  const html = fs.readFileSync(new URL("../project.html", import.meta.url), "utf8");
-  const css = fs.readFileSync(new URL("../project-detail.css", import.meta.url), "utf8");
-  assert.match(html, /portfolio-theme/);
-  assert.match(css, /html\[data-theme="black"\] \.project-detail-content/);
+test("Moon mode adds education, project filters, and persists on project detail pages", () => {
+  const home = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
+  const detail = fs.readFileSync(new URL("../project.html", import.meta.url), "utf8");
+  assert.match(home, /id="education"/);
+  assert.match(home, /data-project-filter="cloud"/);
+  assert.match(home, /data-project-groups="cloud sql orchestration"/);
+  assert.match(detail, /portfolio-style/);
+  assert.match(detail, /moon-theme\.css/);
 });

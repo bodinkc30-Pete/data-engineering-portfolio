@@ -6,7 +6,7 @@ test("Project 08 Airflow and dbt is shown in both portfolio project grids", () =
   const html = fs.readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
   assert.match(html, /<article class="project-card accent-airflow" data-project-id="airflow-dbt">[\s\S]*?Airflow \+ dbt E-commerce[\s\S]*?href="project\.html\?id=airflow-dbt"/);
-  assert.match(html, /<article class="project-detail-08">[\s\S]*?<span>08<\/span>[\s\S]*?Airflow \+ dbt E-commerce[\s\S]*?href="https:\/\/github\.com\/bodinkc30-Pete\/airflow-dbt-ecommerce-data-platform"/);
+  assert.match(html, /<article class="project-detail-08"[^>]*>[\s\S]*?<span>08<\/span>[\s\S]*?Airflow \+ dbt E-commerce[\s\S]*?href="https:\/\/github\.com\/bodinkc30-Pete\/airflow-dbt-ecommerce-data-platform"/);
 });
 
 test("Project 08 uses the portfolio illustration card artwork", () => {

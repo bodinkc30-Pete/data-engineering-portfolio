@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#031327">
-  <script>try{document.documentElement.dataset.theme=localStorage.getItem("portfolio-theme")||"black"}catch(_){document.documentElement.dataset.theme="black"}</script>
+  <script>document.documentElement.dataset.theme="black";try{const q=new URLSearchParams(location.search).get("style");document.documentElement.dataset.style=q||localStorage.getItem("portfolio-style")||"sun"}catch(_){document.documentElement.dataset.style="sun"}</script>
   <meta name="description" content="Project detail and engineering evidence from Bodin Krongchon's data engineering portfolio.">
   <title>Project Details | Bodin Krongchon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,8 @@
   <link href="style.css?v=21.56" rel="stylesheet">
   <link href="project-detail.css?v=21.56" rel="stylesheet">
   <link href="mobile-v21.37.css?v=21.56" rel="stylesheet">
-  <script defer src="project-detail.js?v=21.56"></script>
+  <link href="moon-theme.css?v=21.61" rel="stylesheet">
+  <script defer src="project-detail.js?v=21.61"></script>
 </head>
 <body class="project-page">
   <a class="skip-link" href="#project-detail">Skip to project detail</a>

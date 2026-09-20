@@ -64,12 +64,26 @@ const TRANSLATIONS = {
   }
 };
 
-TRANSLATIONS.en["theme.label"] = "Theme";
-TRANSLATIONS.en["theme.black"] = "Black";
-TRANSLATIONS.en["theme.default"] = "Original";
-TRANSLATIONS.th["theme.label"] = "ธีม";
-TRANSLATIONS.th["theme.black"] = "ดำ";
-TRANSLATIONS.th["theme.default"] = "เดิม";
+TRANSLATIONS.en["appearance.label"] = "Appearance";
+TRANSLATIONS.en["appearance.sun"] = "Sun";
+TRANSLATIONS.en["appearance.moon"] = "Moon";
+TRANSLATIONS.en["nav.education"] = "Education";
+TRANSLATIONS.en["education.eyebrow"] = "ACADEMIC BACKGROUND";
+TRANSLATIONS.en["education.title"] = "Education";
+TRANSLATIONS.en["education.lead"] = "Formal education and structured learning that support my engineering practice.";
+TRANSLATIONS.en["education.bootcamp"] = "Hands-on data science and engineering practice through structured projects.";
+TRANSLATIONS.en["education.degree"] = "Legal foundation strengthened analytical reasoning, structured problem solving, and communication.";
+TRANSLATIONS.en["filters.all"] = "All";
+TRANSLATIONS.th["appearance.label"] = "รูปแบบ";
+TRANSLATIONS.th["appearance.sun"] = "Sun";
+TRANSLATIONS.th["appearance.moon"] = "Moon";
+TRANSLATIONS.th["nav.education"] = "การศึกษา";
+TRANSLATIONS.th["education.eyebrow"] = "พื้นฐานการศึกษา";
+TRANSLATIONS.th["education.title"] = "การศึกษา";
+TRANSLATIONS.th["education.lead"] = "การศึกษาและการเรียนรู้อย่างเป็นระบบที่สนับสนุนการทำงานด้านวิศวกรรมข้อมูล";
+TRANSLATIONS.th["education.bootcamp"] = "ฝึกปฏิบัติด้าน Data Science และ Data Engineering ผ่านโปรเจกต์ที่มีโครงสร้างชัดเจน";
+TRANSLATIONS.th["education.degree"] = "พื้นฐานด้านกฎหมายช่วยเสริมการคิดวิเคราะห์ การแก้ปัญหาอย่างเป็นระบบ และการสื่อสาร";
+TRANSLATIONS.th["filters.all"] = "ทั้งหมด";
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
@@ -79,8 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = [...document.querySelectorAll('.side-nav-link[href^="#"]')];
   const sections = [...document.querySelectorAll("main section[id]")];
   const langButtons = [...document.querySelectorAll("[data-lang]")];
-  const themeButtons = [...document.querySelectorAll("[data-theme-option]")];
+  const styleButtons = [...document.querySelectorAll("[data-style-option]")];
   const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const projectFilterButtons = [...document.querySelectorAll("[data-project-filter]")];
+  const filterableProjects = [...document.querySelectorAll("[data-project-groups]")];
   const year = document.getElementById("current-year");
   const resumePopover = document.querySelector("[data-resume-popover]");
   const experiencePopover = document.querySelector("[data-experience-popover]");
@@ -113,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const setActive = (sectionId) => {
+    document.documentElement.dataset.activeSection = sectionId;
     navLinks.forEach((link) => {
       const active = link.getAttribute("href") === `#${sectionId}`;
       link.classList.toggle("active", active);
@@ -132,12 +149,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const resolveActiveSection = () => {
-    const probeY = window.scrollY + getSectionProbeOffset();
-    let currentId = sections[0]?.id || "home";
-    sections.forEach((section) => {
-      if (probeY >= section.offsetTop - 1) currentId = section.id;
-    });
-    return currentId;
+    const probe = getSectionProbeOffset();
+    const visibleSections = sections
+      .filter((section) => window.getComputedStyle(section).display !== "none")
+      .map((section) => ({ section, rect: section.getBoundingClientRect() }))
+      .filter(({ rect }) => rect.height > 0);
+
+    const containing = visibleSections.find(({ rect }) => rect.top <= probe && rect.bottom > probe);
+    if (containing) return containing.section.id;
+
+    const nearest = visibleSections
+      .slice()
+      .sort((a, b) => Math.abs(a.rect.top - probe) - Math.abs(b.rect.top - probe))[0];
+    return nearest?.section.id || "home";
   };
 
   const syncActiveSection = () => {
@@ -161,6 +185,25 @@ document.addEventListener("DOMContentLoaded", () => {
     window.requestAnimationFrame(() => {
       scrollState.ticking = false;
       syncActiveSection();
+    });
+  };
+
+  const alignHashTarget = () => {
+    const id = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target || window.getComputedStyle(target).display === "none") return;
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        const destination = getTargetScrollTop(target);
+        scrollState.targetId = target.id;
+        scrollState.targetY = destination;
+        scrollState.releaseAt = performance.now() + 420;
+        window.scrollTo({ top: destination, behavior: "auto" });
+        setActive(target.id);
+        requestActiveSync();
+      });
     });
   };
 
@@ -210,24 +253,71 @@ document.addEventListener("DOMContentLoaded", () => {
     requestActiveSync();
   });
 
-  const applyTheme = (theme, persist = true) => {
-    const resolved = theme === "default" ? "default" : "black";
-    document.documentElement.dataset.theme = resolved;
-    themeButtons.forEach((button) => {
-      const active = button.dataset.themeOption === resolved;
+  const applyStyle = (style, persist = true) => {
+    const resolved = style === "moon" ? "moon" : "sun";
+    document.documentElement.dataset.style = resolved;
+    document.documentElement.dataset.theme = "black";
+    styleButtons.forEach((button) => {
+      const active = button.dataset.styleOption === resolved;
       button.classList.toggle("active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    if (themeColorMeta) themeColorMeta.setAttribute("content", resolved === "black" ? "#000000" : "#031327");
-    if (persist) {
-      try { localStorage.setItem("portfolio-theme", resolved); } catch (_) {}
+    if (themeColorMeta) themeColorMeta.setAttribute("content", resolved === "moon" ? "#020711" : "#000000");
+    if (resolved === "sun") {
+      filterableProjects.forEach((card) => { card.hidden = false; });
+      projectFilterButtons.forEach((button) => button.classList.toggle("active", button.dataset.projectFilter === "all"));
     }
+    applyPresentationSectionLabels();
+    if (persist) {
+      try { localStorage.setItem("portfolio-style", resolved); } catch (_) {}
+    }
+    requestActiveSync();
+    alignHashTarget();
   };
 
-  themeButtons.forEach((button) => button.addEventListener("click", () => applyTheme(button.dataset.themeOption)));
-  let savedTheme = document.documentElement.dataset.theme || "black";
-  try { savedTheme = localStorage.getItem("portfolio-theme") || savedTheme; } catch (_) {}
-  applyTheme(savedTheme, false);
+  styleButtons.forEach((button) => button.addEventListener("click", () => applyStyle(button.dataset.styleOption)));
+  const requestedStyle = new URLSearchParams(window.location.search).get("style");
+  let savedStyle = requestedStyle || document.documentElement.dataset.style || "sun";
+  try { savedStyle = requestedStyle || localStorage.getItem("portfolio-style") || savedStyle; } catch (_) {}
+  applyStyle(savedStyle, false);
+
+  const applyProjectFilter = (filter) => {
+    const resolved = filter || "all";
+    projectFilterButtons.forEach((button) => button.classList.toggle("active", button.dataset.projectFilter === resolved));
+    filterableProjects.forEach((card) => {
+      const groups = (card.dataset.projectGroups || "").split(/\s+/);
+      card.hidden = resolved !== "all" && !groups.includes(resolved);
+    });
+  };
+
+  projectFilterButtons.forEach((button) => button.addEventListener("click", () => applyProjectFilter(button.dataset.projectFilter)));
+  applyProjectFilter("all");
+
+  function applyPresentationSectionLabels() {
+    const lang = document.documentElement.lang === "th" ? "th" : "en";
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+    const isMoon = document.documentElement.dataset.style === "moon";
+    const moonNumbers = {
+      "section.about": "02",
+      "section.experience": "03",
+      "section.capabilities": "05",
+      "section.projects": "06",
+      "section.proof": "07",
+      "section.credentials": "08",
+      "section.contact": "09"
+    };
+
+    Object.entries(moonNumbers).forEach(([key, number]) => {
+      const el = document.querySelector(`[data-i18n="${key}"]`);
+      if (!el || !dict[key]) return;
+      if (!isMoon) {
+        el.textContent = dict[key];
+        return;
+      }
+      const suffix = dict[key].split("/").slice(1).join("/").trim();
+      el.textContent = `${number} / ${suffix}`;
+    });
+  }
 
   const applyLanguage = (lang) => {
     const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
@@ -243,6 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : 'Let\'s build <span class="accent">reliable</span><br>data systems<span class="accent-dot">.</span>';
     }
     langButtons.forEach((button) => button.classList.toggle("active", button.dataset.lang === lang));
+    applyPresentationSectionLabels();
     document.title = lang === "th" ? "Bodin Krongchon | Portfolio Data Engineer" : "Bodin Krongchon | Data Engineer Portfolio";
     try { localStorage.setItem("portfolio-language", lang); } catch (_) {}
     requestActiveSync();
@@ -279,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   requestActiveSync();
+  alignHashTarget();
 });
 
 
