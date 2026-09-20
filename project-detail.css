@@ -96,3 +96,171 @@
     border-radius: 12px;
   }
 }
+
+/* V21.53 — compact shared project-detail hero for Projects 01–08. */
+@media (min-width: 761px) {
+  .project-page-shell {
+    width: min(1240px, calc(100% - 48px));
+    padding-top: 18px;
+    padding-bottom: 48px;
+  }
+
+  .project-detail-content {
+    margin-top: 24px;
+    border-radius: 20px;
+  }
+
+  .project-detail-hero {
+    position: relative;
+    grid-template-columns: minmax(0, 56%) minmax(320px, 44%);
+    gap: 28px;
+    min-height: 0;
+    padding: 28px 34px 26px;
+    align-items: center;
+  }
+
+  .project-detail-hero-copy {
+    min-width: 0;
+  }
+
+  .project-detail-number {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  .project-detail-label {
+    position: absolute;
+    top: 28px;
+    right: 34px;
+    float: none;
+    margin: 0;
+    z-index: 3;
+  }
+
+  .project-detail-eyebrow {
+    margin: 16px 0 7px;
+    font-size: 11px;
+  }
+
+  .project-detail-hero h1 {
+    max-width: 680px;
+    font-size: clamp(32px, 3.25vw, 46px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .project-detail-summary {
+    max-width: 680px;
+    margin: 14px 0 18px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .project-primary-action {
+    padding: 11px 15px;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+
+  .project-detail-image-wrap {
+    min-height: 0;
+    padding-top: 28px;
+    place-items: center;
+  }
+
+  .project-detail-image-wrap img[src*="assets/illustrations/projects/cards/"] {
+    width: min(100%, 470px) !important;
+    max-height: 300px !important;
+    aspect-ratio: 4 / 3;
+    object-fit: cover !important;
+    border-radius: 14px;
+    box-shadow: 0 18px 34px rgba(0,0,0,.30);
+  }
+
+  .project-detail-evidence div {
+    padding: 15px 14px;
+  }
+
+  .project-detail-evidence strong {
+    font-size: 21px;
+  }
+
+  .project-detail-evidence span {
+    margin-top: 3px;
+    font-size: 10px;
+  }
+
+  .project-detail-grid {
+    gap: 16px;
+    padding: 24px 34px 6px;
+  }
+
+  .project-detail-grid article {
+    padding: 18px;
+  }
+
+  .project-detail-grid h2,
+  .project-detail-section h2,
+  .project-detail-tools h2 {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .project-detail-grid p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .project-detail-section,
+  .project-detail-tools {
+    margin: 18px 34px 0;
+    padding: 20px;
+  }
+
+  .project-detail-tools {
+    margin-bottom: 34px;
+  }
+
+  .project-flow {
+    gap: 8px;
+  }
+
+  .project-flow li {
+    min-height: 78px;
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .project-flow li span {
+    margin-bottom: 9px;
+    font-size: 11px;
+  }
+
+  .project-delivered {
+    gap: 8px;
+    line-height: 1.52;
+  }
+
+  .project-evidence-gallery {
+    margin-top: 18px;
+  }
+
+  .project-evidence-grid {
+    gap: 12px;
+  }
+
+  .project-evidence-card {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .project-evidence-card strong {
+    font-size: 14px;
+  }
+
+  .project-evidence-card span {
+    font-size: 12px;
+  }
+}
