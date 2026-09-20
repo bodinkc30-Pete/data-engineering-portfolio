@@ -107,13 +107,15 @@ function renderProject(project, lang) {
       <section class="project-detail-hero">
         <div class="project-detail-hero-copy">
           <span class="project-detail-number">${project.number}</span>
-          <span class="project-detail-label">${escapeHtml(content.label)}</span>
           <p class="project-detail-eyebrow">${copy.overview}</p>
           <h1>${escapeHtml(content.title)}</h1>
           <p class="project-detail-summary">${escapeHtml(content.summary)}</p>
           <a class="project-primary-action" href="${project.github}" target="_blank" rel="noopener noreferrer">${copy.github} <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="project-detail-image-wrap"><img src="${project.image}" alt="" aria-hidden="true"></div>
+        <div class="project-detail-media">
+          <div class="project-detail-media-head"><span class="project-detail-label">${escapeHtml(content.label)}</span></div>
+          <div class="project-detail-image-wrap"><img src="${project.image}" alt="" aria-hidden="true"></div>
+        </div>
       </section>
       <div class="project-detail-evidence" aria-label="${copy.evidence}">${project.metrics.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}</div>
       <section class="project-detail-grid">
