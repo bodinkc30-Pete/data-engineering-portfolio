@@ -8082,3 +8082,101 @@
 }
 .project-card[data-project-id], .v213-projects .project-detail-grid article[data-project-id] { cursor: pointer; }
 .project-card[data-project-id]:focus-visible, .v213-projects .project-detail-grid article[data-project-id]:focus-visible { outline: 3px solid #63d6ff; outline-offset: 4px; }
+
+/* V21.46 — real project evidence imagery */
+.project-visual {
+  overflow: hidden;
+  border-radius: 9px;
+}
+.project-visual::before { display: none; }
+.project-visual img[src*="assets/evidence/projects/"] {
+  width: 100% !important;
+  height: 68px !important;
+  object-fit: cover !important;
+  object-position: center;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, rgba(255,255,255,.08));
+  border-radius: 8px;
+  filter: none !important;
+  box-shadow: 0 7px 18px rgba(0,0,0,.28);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+.project-card:hover .project-visual img[src*="assets/evidence/projects/"] {
+  transform: scale(1.025);
+  filter: saturate(1.06) contrast(1.03) !important;
+}
+
+.project-visual:has(img[src*="assets/evidence/projects/"])::after {
+  content: "REAL EVIDENCE";
+  position: absolute;
+  left: 6px;
+  bottom: 5px;
+  z-index: 3;
+  padding: 3px 6px;
+  border: 1px solid color-mix(in srgb, var(--accent) 56%, transparent);
+  border-radius: 999px;
+  background: rgba(2,13,25,.88);
+  color: color-mix(in srgb, var(--accent) 88%, white);
+  font-size: 5.8px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  pointer-events: none;
+}
+.featured-visual[src*="assets/evidence/projects/"] {
+  width: 250px;
+  height: 142px;
+  object-fit: cover;
+  border: 1px solid rgba(103,167,255,.45);
+  border-radius: 12px;
+  filter: drop-shadow(0 16px 24px rgba(0,0,0,.34));
+}
+
+.v213-projects .project-detail-grid article {
+  position: relative;
+  min-height: 472px;
+  padding: 184px 14px 14px;
+}
+.v213-projects .project-detail-grid article::after { display: none; }
+.v213-projects .project-detail-art[src*="assets/evidence/projects/"] {
+  position: absolute;
+  top: 14px !important;
+  left: 14px;
+  right: 14px !important;
+  width: calc(100% - 28px) !important;
+  height: 150px !important;
+  max-width: none;
+  object-fit: cover !important;
+  object-position: center;
+  border: 1px solid color-mix(in srgb, currentColor 34%, rgba(255,255,255,.08));
+  border-radius: 11px;
+  filter: none !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,.30);
+}
+.v213-projects .project-detail-grid article > span {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 5;
+}
+
+.v213-projects .project-detail-grid h3 {
+  max-width: 100%;
+  margin-top: 0;
+}
+.v213-projects .project-detail-grid p {
+  min-height: 116px;
+}
+.v213-projects .project-detail-art[src*="assets/evidence/projects/"] + h3::before {
+  content: "VERIFIED PROJECT EVIDENCE";
+  display: block;
+  margin-bottom: 7px;
+  color: currentColor;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  opacity: .86;
+}
+@media (max-width: 1180px) {
+  .v213-projects .project-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

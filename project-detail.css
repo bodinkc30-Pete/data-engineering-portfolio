@@ -30,3 +30,46 @@
 .project-evidence-modal-card h2 { margin:.7rem 0 .25rem; }
 .project-evidence-modal-card p { margin:.25rem 0 0; color:#b5c5d8; line-height:1.55; }
 @media (max-width:650px) { .project-evidence-heading { display:block; }.project-evidence-heading span { display:block; margin-top:.4rem; }.project-evidence-grid { grid-template-columns:1fr; } }
+
+/* V21.46 — project detail pages now foreground real engineering evidence. */
+.project-detail-image-wrap img[src*="assets/evidence/projects/"] {
+  width: min(100%, 520px);
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid color-mix(in srgb, var(--detail-accent) 44%, rgba(255,255,255,.08));
+  border-radius: 16px;
+  background: #061321;
+  filter: none;
+  box-shadow: 0 24px 42px rgba(0,0,0,.38);
+}
+.project-detail-image-wrap:has(img[src*="assets/evidence/projects/"]) {
+  position: relative;
+  align-content: center;
+}
+.project-detail-image-wrap:has(img[src*="assets/evidence/projects/"])::after {
+  content: "VERIFIED ENGINEERING EVIDENCE";
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--detail-accent) 55%, transparent);
+  border-radius: 999px;
+  color: var(--detail-accent);
+  background: rgba(2,13,25,.90);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .09em;
+}
+@media (max-width:760px) {
+  .project-detail-image-wrap img[src*="assets/evidence/projects/"] {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .project-detail-image-wrap:has(img[src*="assets/evidence/projects/"])::after {
+    left: 10px;
+    bottom: 10px;
+    font-size: 8px;
+  }
+}

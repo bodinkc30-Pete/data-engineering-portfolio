@@ -677,3 +677,50 @@
     max-height: 25px !important;
   }
 }
+
+/* V21.46 — evidence image responsive overrides. */
+@media (max-width: 760px) {
+  .project-card .project-visual img[src*="assets/evidence/projects/"] {
+    width: 100% !important;
+    height: 68px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 8px !important;
+  }
+
+  .v213-projects .project-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .v213-projects .project-detail-grid article {
+    min-height: 0 !important;
+    padding: 196px 16px 16px !important;
+  }
+
+  .v213-projects .project-detail-art[src*="assets/evidence/projects/"] {
+    top: 16px !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: calc(100% - 32px) !important;
+    height: 164px !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+  }
+
+  .v213-projects .project-detail-grid article > span {
+    top: 26px !important;
+    left: 26px !important;
+  }
+
+  .v213-projects .project-detail-grid p {
+    min-height: 0 !important;
+  }
+
+  .featured-visual[src*="assets/evidence/projects/"] {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    object-fit: cover !important;
+  }
+}
