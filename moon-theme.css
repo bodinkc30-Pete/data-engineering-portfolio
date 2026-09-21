@@ -1610,3 +1610,103 @@ html[data-style="moon"] .moon-about-quote {
     margin: 0 auto;
   }
 }
+
+/* V21.74 — Moon Projects: equal card rhythm + repository CTA parity */
+@media (min-width: 1001px) {
+  html[data-style="moon"] #projects .project-detail-grid {
+    grid-auto-rows: 1fr !important;
+    align-items: stretch !important;
+  }
+
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) {
+    height: 100% !important;
+    min-height: 492px !important;
+  }
+
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) h3 {
+    min-height: 2.4em !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) p {
+    height: 7.25em !important;
+    min-height: 7.25em !important;
+    max-height: 7.25em !important;
+    margin-bottom: 0 !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden !important;
+  }
+
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) > .project-detail-metrics {
+    margin-top: auto !important;
+  }
+}
+
+html[data-style="moon"] #projects .project-repo-cta {
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  min-height: 36px !important;
+  margin-top: 12px !important;
+  padding: 0 11px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  border: 1px solid rgba(90, 164, 240, .30) !important;
+  border-radius: 9px !important;
+  background: linear-gradient(180deg, rgba(10, 26, 43, .78), rgba(5, 14, 25, .88)) !important;
+  color: #a9c2dc !important;
+  font-size: 9px !important;
+  font-weight: 750 !important;
+  letter-spacing: .015em;
+  text-decoration: none !important;
+  transition: border-color .16s ease, background .16s ease, color .16s ease, transform .16s ease;
+}
+
+html[data-style="moon"] #projects .project-repo-cta .repo-mark {
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(100, 176, 255, .28);
+  border-radius: 6px;
+  color: #71b4ff;
+  background: rgba(8, 22, 38, .78);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: -.02em;
+}
+
+html[data-style="moon"] #projects .project-repo-cta:hover {
+  color: #f2f8ff !important;
+  border-color: rgba(97, 178, 255, .60) !important;
+  background: linear-gradient(180deg, rgba(17, 45, 74, .88), rgba(7, 21, 37, .94)) !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1000px) {
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) h3,
+  html[data-style="moon"] #projects .project-detail-grid article:has(img[src*="assets/illustrations/projects/cards/"]) p {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
+  }
+}
+
+@media (min-width: 1001px) {
+  html[data-style="moon"] #projects .project-detail-05 > .project-detail-metrics {
+    min-height: 69px !important;
+    height: 69px !important;
+  }
+
+  html[data-style="moon"] #projects .project-detail-05 > .project-detail-metrics b {
+    min-height: 58px !important;
+  }
+}

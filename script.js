@@ -517,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".v213-projects .project-detail-grid article").forEach((card, index) => {
     if (!detailProjectIds[index]) return;
     card.dataset.projectId = detailProjectIds[index];
-    card.querySelectorAll("a.card-cta").forEach((link) => {
+    card.querySelectorAll("a.card-cta:not(.project-repo-cta)").forEach((link) => {
       link.href = `project.html?id=${encodeURIComponent(detailProjectIds[index])}`;
       link.removeAttribute("target");
       link.removeAttribute("rel");
