@@ -377,8 +377,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (aboutLead && dict["about.p1"]) {
       aboutLead.textContent = isMoon
         ? (lang === "th"
-          ? "ผม บดินทร์ ครองชนม์ ทำงานด้าน Data Engineering โดยเน้นระบบข้อมูลที่เชื่อถือได้ การแก้ปัญหาทางธุรกิจ และการพัฒนาทักษะด้าน Cloud, Lakehouse และ Platform Engineering"
-          : "I'm Bodin Krongchon, a Data Engineer focused on reliable data systems, real business problems, and continuous learning across cloud, lakehouse, and platform engineering.")
+          ? "ทำงานด้าน Data Engineering โดยเน้นระบบข้อมูลที่เชื่อถือได้ การแก้ปัญหาทางธุรกิจ และการพัฒนาทักษะด้าน Cloud, Lakehouse และ Platform Engineering"
+          : "I work in Data Engineering with a focus on reliable data systems, real business problems, and continuous learning across cloud, lakehouse, and platform engineering.")
         : dict["about.p1"];
     }
 

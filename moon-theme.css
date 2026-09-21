@@ -1551,3 +1551,62 @@ html[data-style="moon"] .moon-about-quote {
     0 0 22px rgba(48, 132, 255, .08),
     inset 0 0 0 1px rgba(126, 198, 255, .05) !important;
 }
+
+/* V21.73 — Moon About: frameless transparent portrait */
+@media (min-width: 1100px) {
+  html[data-style="moon"] #about .about-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 430px) !important;
+    gap: 42px !important;
+  }
+}
+
+html[data-style="moon"] .moon-about-visual {
+  position: relative !important;
+  min-height: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
+  isolation: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-style="moon"] .moon-about-visual::before,
+html[data-style="moon"] .moon-about-visual::after {
+  display: none !important;
+  content: none !important;
+}
+
+html[data-style="moon"] .moon-about-visual img {
+  position: relative !important;
+  z-index: 1;
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 540px !important;
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 22px 30px rgba(0, 0, 0, .32)) !important;
+}
+
+html[data-style="moon"] .moon-about-quote {
+  display: none !important;
+}
+
+@media (max-width: 1099px) {
+  html[data-style="moon"] .moon-about-visual,
+  html[data-style="moon"] .moon-about-visual img {
+    min-height: 0 !important;
+  }
+
+  html[data-style="moon"] .moon-about-visual img {
+    width: min(100%, 520px) !important;
+    margin: 0 auto;
+  }
+}
