@@ -393,3 +393,19 @@ html[data-theme="black"] .project-detail-tools,
 html[data-theme="black"] .project-evidence-card {
   border-color: rgba(50, 142, 194, .30) !important;
 }
+
+/* Project identifier disclosure: rendered only when developmentId exists. */
+.project-detail-id-note {
+  margin: 0 0 12px;
+  color: #b1c5db;
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: .01em;
+}
+.project-detail-id-note strong { color: #d8e7f8; font-weight: 800; }
+.project-evidence-context {
+  margin: 0 0 14px;
+  color: #afc4d9;
+  font-size: 13px;
+  line-height: 1.55;
+}
